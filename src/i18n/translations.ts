@@ -1,0 +1,621 @@
+// Landing-only translations. Default language: English.
+// Optional Spanish (es) and Portuguese (pt) shown via the LanguageDetectModal
+// when the visitor's browser/timezone suggests a Spanish-speaking country or Brazil.
+
+export type Lang = "en" | "es" | "pt";
+
+const en = {
+  nav: {
+    services: "Services",
+    integrate: "Integrate",
+    values: "Values",
+    mission: "Mission",
+    reviews: "Reviews",
+    blog: "Blog",
+    ctaSend: "Send now",
+    ctaDownload: "Download app",
+  },
+  hero: {
+    eyebrow: "Fiat to enter. Blockchain to settle.",
+    titleLine1: "Settlement",
+    titleLine2: "Infrastructure-",
+    rotating: ["Hybrid", "Fiat", "Crypto"],
+    description:
+      "Kawi connects banking and blockchain infrastructure to settle value between countries quickly, transparently and globally using Solana.",
+    ctaStart: "Get started",
+    ctaDownload: "Download the app",
+    ctaExplore: "Explore infrastructure",
+  },
+  infra: {
+    eyebrow: "Kawi Architecture",
+    titleStart: "How our",
+    titleEnd: "hybrid settlement infrastructure works.",
+    subtitle:
+      "Kawi connects banking rails and blockchain to turn local money into global liquidity.",
+    items: [
+      {
+        title: "Fiat Infrastructure",
+        desc: "We capture money locally using traditional rails like PIX and bank accounts. This layer lets any user enter the system with fiat in a simple, accessible way.",
+        tag: "Entry",
+        cta: "Explore →",
+      },
+      {
+        title: "Blockchain Infrastructure",
+        desc: "We convert fiat value into digital liquidity using stablecoins and blockchain networks. This moves capital globally with speed, transparency and less friction.",
+        tag: "Movement",
+        cta: "Explore →",
+      },
+      {
+        title: "Settlement Engine",
+        desc: "Our engine connects banking infrastructure with blockchain. It coordinates conversion, execution and final delivery to complete value settlement across systems.",
+        tag: "Core",
+        cta: "Explore →",
+      },
+      {
+        title: "Hybrid Architecture",
+        desc: "We combine the best of both worlds: fiat for access and mass adoption, blockchain for speed, traceability and global reach.",
+        tag: "Advantage",
+        cta: "Explore →",
+      },
+      {
+        title: "Security Layer",
+        desc: "Every operation is validated, audited and traceable. Our architecture reduces intermediaries, minimizes points of failure and lets you verify each settlement transparently and anonymously.",
+        tag: "Security",
+        cta: "Explore →",
+      },
+    ],
+  },
+  store: {
+    eyebrow: "Integrate with Kawi",
+    titleLine1: "Infrastructure",
+    fiat: "Fiat",
+    crypto: "Crypto",
+    steps: [
+      {
+        title: "Kawi Widget",
+        description:
+          "Embed our widget and let your users convert fiat to crypto, crypto to fiat or fiat to fiat inside your platform in minutes.",
+        cta: "Integrate Widget",
+      },
+      {
+        title: "Kawi API",
+        description:
+          "Automate deposits, swaps and payouts with our API. Run hybrid settlements using banking and blockchain rails.",
+        cta: "Explore API",
+      },
+    ],
+  },
+  expansion: {
+    eyebrow: "Kawi Network",
+    titleStart: "The most",
+    titleEm: "efficient",
+    titleEnd: "settlement network in Latam.",
+    description:
+      "Kawi is expanding its hybrid infrastructure across Latin America, connecting banking and blockchain rails to move value between countries quickly, securely and programmatically.",
+    stats: [
+      { value: "1K+", label: "Transactions created" },
+      { value: "1 min", label: "Average time" },
+      { value: "100%", label: "Success rate" },
+    ],
+    corridors: "Kawi Corridors",
+    expanding: "Expanding",
+    countries: [
+      { country: "Brazil", region: "Live", status: "Live" },
+      { country: "Cuba", region: "Live", status: "Live" },
+      { country: "Venezuela", region: "Beta", status: "Testing" },
+      { country: "Dominican Republic", region: "Beta", status: "Testing" },
+      { country: "Mexico", region: "Beta", status: "Testing" },
+      { country: "Colombia", region: "Beta", status: "Testing" },
+    ],
+  },
+  raas: {
+    eyebrow: "Growing platform",
+    titleLine1: "Real impact",
+    titleLine2: "in motion.",
+    description:
+      "Kawi connects people, businesses and financial infrastructure to move value between countries using fiat and blockchain rails.",
+    live: "Live",
+    cta: "Explore Kawi",
+    metrics: [
+      "Total volume settled",
+      "Monthly volume settled",
+      "Completed transactions",
+      "Total revenue",
+      "Time in market",
+      "Active community",
+      "Approx. monthly growth",
+      "Active corridors",
+      "Corridors in preparation",
+      "Potential corridors",
+    ],
+    monthsSuffix: " Months",
+  },
+  integrations: {
+    eyebrow: "Connected infrastructure",
+    titleLine1: "We connect fiat,",
+    titleLine2Start: "crypto and",
+    titleLine2Em: "global liquidity.",
+    description:
+      "Kawi operates as a hybrid settlement infrastructure connecting banking rails, stablecoins, exchanges and blockchains to move value between countries with maximum efficiency.",
+  },
+  reviews: {
+    eyebrow: "What our customers say",
+    rating: "Rating",
+    starsSuffix: "stars",
+    companies: "Companies that trust us",
+    cta: "See more on Trustpilot",
+    countries: { BR: "Brazil", CU: "Cuba" },
+    items: [
+      { title: "Trustworthy people who work very fast", text: "From the very first transaction they helped me with great patience and clarity. The entire process was fast, transparent and hassle-free. What I value most is the trust they convey and how quickly they execute each transfer. I've done several operations with them and they always deliver exactly as promised." },
+      { title: "Fast, reliable and secure", text: "The first time I started with some hesitation because you always have doubts when sending money, but from the beginning they were very clear with me. They explained the whole process, the times and the rates. So far everything has gone perfectly: fast, secure and error-free. It has already become my go-to option to send money." },
+      { title: "Everything arrived flawlessly and on time", text: "I bought several products for my family and the experience was excellent. The follow-up was constant and they always kept me informed of every step. Everything arrived complete, in good condition and within the estimated time. You can tell they are organized and responsible." },
+      { title: "Very professional and transparent service", text: "What I liked most was the clarity with the prices and the speed of the responses. From the quote to the confirmation of the service, everything was very professional. They followed up constantly and answered every question in real time. It's hard to find that level of care these days." },
+      { title: "Buying tickets has never been so easy", text: "I needed to sort out an urgent trip and the whole process was incredibly fast. I did everything from my phone and within minutes I had the booking confirmed. They also helped me with important details I didn't know about. Highly recommended for anyone who needs speed." },
+      { title: "Great prices and excellent support", text: "I compared several options before deciding and Kawi was the clearest with its fees. There were no hidden costs or unexpected changes. Plus, support replied quickly every time I needed help. The combination of a good price and great care makes a big difference." },
+      { title: "Fast, safe and organized delivery", text: "The experience was excellent from the start. The team was attentive to every detail and kept me informed at all times. The delivery was done faster than I expected and everything arrived correctly. I will definitely use them again." },
+      { title: "Flawless process from start to finish", text: "From the first quote I felt that everything was well structured. Communication was clear, the process simple and the confirmation fast. Everything felt professional and safe. It's one of those platforms that builds trust from the very first contact." },
+      { title: "Fast and very human service", text: "I had many doubts before doing the operation and they answered absolutely everything with patience. They guided me step by step until the end of the process, which gave me a lot of peace of mind. You can tell they truly understand the needs of those of us who are far from our family." },
+      { title: "Total trust to operate", text: "I have used the service several times and it has always worked perfectly. Response times are fast, the support is good and the process is simple. These days that's worth a lot. I especially recommend it to those who need to send money or manage services to Cuba." },
+      { title: "Very useful with excellent support", text: "Not only did they help me with the booking, they also guided me through several documents and requirements I wasn't clear about. That made everything much easier and faster. The service is very complete and the support throughout the process makes a big difference." },
+    ],
+  },
+  cta: {
+    badge: "Infrastructure ready to scale",
+    titleLine1: "Connect fiat.",
+    titleLine2: "Settle on blockchain.",
+    description:
+      "Integrate Kawi technology in your platform to process Fiat → Crypto and Crypto → Fiat conversions with fast settlement, real-time monitoring and international reach.",
+    ctaStart: "Start integration",
+    ctaDownload: "Download on Play Store",
+    ctaDocs: "View API documentation",
+    badgeLine: "API • Widget • Hybrid settlement • White label",
+  },
+  footer: {
+    description:
+      "Kawi operates as a hybrid settlement infrastructure connecting banking and blockchain rails to move value between countries quickly, securely and programmably.",
+    navigation: "Navigation",
+    community: "Community",
+    legal: "Legal",
+    rights: "All rights reserved.",
+    active: "Platform active 24/7",
+    nav: {
+      webApp: "Web App",
+      mobile: "Mobile App",
+      widgets: "Widgets",
+      api: "API Service",
+      docs: "Documentation",
+      presentation: "Presentation",
+    },
+    communityLinks: {
+      blog: "Blog",
+      whatsapp1: "WhatsApp #1",
+      whatsapp2: "WhatsApp #2",
+      solana: "Solana Foundation",
+      accelerated: "Accelerated",
+    },
+    legalLinks: {
+      privacy: "Privacy",
+      regulation: "Regulation",
+      collabs: "Collaborations",
+      deleteAccount: "Account deletion",
+      deleteData: "Data deletion",
+    },
+  },
+  langModal: {
+    es: {
+      title: "¿Prefieres ver Kawi en español?",
+      desc: "Detectamos que estás en un país de habla hispana. Podemos mostrarte el contenido en español.",
+      accept: "Sí, en español",
+      decline: "Keep in English",
+    },
+    pt: {
+      title: "Você prefere ver a Kawi em português?",
+      desc: "Detectamos que você está no Brasil. Podemos mostrar o conteúdo em português.",
+      accept: "Sim, em português",
+      decline: "Keep in English",
+    },
+  },
+};
+
+const es: typeof en = {
+  nav: {
+    services: "Servicios",
+    integrate: "Integrar",
+    values: "Valores",
+    mission: "Misión",
+    reviews: "Reseñas",
+    blog: "Blog",
+    ctaSend: "Enviar ahora",
+    ctaDownload: "Descargar app",
+  },
+  hero: {
+    eyebrow: "Fiat para entrar. Blockchain para liquidar.",
+    titleLine1: "Infraestructura de",
+    titleLine2: "Liquidación-",
+    rotating: ["Híbrida", "Fiat", "Cripto"],
+    description:
+      "Kawi conecta infraestructura bancaria y blockchain para liquidar valor entre países de forma rápida, transparente y global usando Solana.",
+    ctaStart: "Comenzar ahora",
+    ctaDownload: "Descargar la app",
+    ctaExplore: "Explorar infraestructura",
+  },
+  infra: {
+    eyebrow: "Arquitectura de Kawi",
+    titleStart: "Cómo funciona nuestra infraestructura de",
+    titleEnd: "liquidación híbrida.",
+    subtitle:
+      "Kawi conecta rails bancarios y blockchain para transformar dinero local en liquidez global.",
+    items: [
+      {
+        title: "Infraestructura Fiat",
+        desc: "Capturamos dinero localmente usando rails tradicionales como PIX y cuentas bancarias. Esta capa permite a cualquier usuario entrar al sistema con dinero fiat de forma simple y accesible.",
+        tag: "Entrada",
+        cta: "Explorar →",
+      },
+      {
+        title: "Infraestructura Blockchain",
+        desc: "Convertimos valor fiat en liquidez digital usando stablecoins y redes blockchain. Esto permite mover capital globalmente con velocidad, transparencia y menor fricción.",
+        tag: "Movimiento",
+        cta: "Explorar →",
+      },
+      {
+        title: "Motor de Liquidación",
+        desc: "Nuestro motor conecta la infraestructura bancaria con la blockchain. Coordina conversión, ejecución y entrega final para completar la liquidación de valor entre sistemas distintos.",
+        tag: "Core",
+        cta: "Explorar →",
+      },
+      {
+        title: "Arquitectura Híbrida",
+        desc: "Combinamos lo mejor de ambos mundos: fiat para acceso y adopción masiva, blockchain para velocidad, trazabilidad y alcance global.",
+        tag: "Ventaja",
+        cta: "Explorar →",
+      },
+      {
+        title: "Capa de Seguridad",
+        desc: "Cada operación es validada, auditada y trazable. Nuestra arquitectura reduce intermediarios, minimiza puntos de fallo y permite verificar cada liquidación de forma transparente y anónima.",
+        tag: "Seguridad",
+        cta: "Explorar →",
+      },
+    ],
+  },
+  store: {
+    eyebrow: "Integración con Kawi",
+    titleLine1: "Infraestructura",
+    fiat: "Fiat",
+    crypto: "Cripto",
+    steps: [
+      {
+        title: "Kawi Widget",
+        description:
+          "Integra nuestro widget y permite a tus usuarios convertir fiat a cripto, cripto a fiat o fiat a fiat dentro de tu plataforma en minutos.",
+        cta: "Integrar Widget",
+      },
+      {
+        title: "Kawi API",
+        description:
+          "Automatiza depósitos, swaps y payouts con nuestra API. Ejecuta liquidaciones híbridas usando rails bancarios y blockchain.",
+        cta: "Explorar API",
+      },
+    ],
+  },
+  expansion: {
+    eyebrow: "Kawi Network",
+    titleStart: "La red de liquidación más",
+    titleEm: "eficiente",
+    titleEnd: "de Latam.",
+    description:
+      "Kawi está expandiendo su infraestructura híbrida en América Latina, conectando rails bancarios y blockchain para mover valor entre países de forma rápida, segura y programable.",
+    stats: [
+      { value: "1K+", label: "Transacciones creadas" },
+      { value: "1 min", label: "Tiempo promedio" },
+      { value: "100%", label: "Tasa de éxito" },
+    ],
+    corridors: "Kawi Corridors",
+    expanding: "Expandiendo",
+    countries: [
+      { country: "Brasil", region: "Operativo", status: "Live" },
+      { country: "Cuba", region: "Operativo", status: "Live" },
+      { country: "Venezuela", region: "Beta", status: "Testing" },
+      { country: "República Dominicana", region: "Beta", status: "Testing" },
+      { country: "México", region: "Beta", status: "Testing" },
+      { country: "Colombia", region: "Beta", status: "Testing" },
+    ],
+  },
+  raas: {
+    eyebrow: "Plataforma en crecimiento",
+    titleLine1: "Impacto real",
+    titleLine2: "en movimiento.",
+    description:
+      "Kawi conecta personas, negocios e infraestructura financiera para mover valor entre países usando rails fiat y blockchain.",
+    live: "En vivo",
+    cta: "Explorar Kawi",
+    metrics: [
+      "Volumen total liquidado",
+      "Volumen mensual liquidado",
+      "Transacciones completadas",
+      "Ganancias totales obtenidas",
+      "Tiempo en el mercado",
+      "Comunidad activa",
+      "Crecimiento aproximado mensual",
+      "Corredores activos",
+      "Corredores en preparación",
+      "Corredores potenciales",
+    ],
+    monthsSuffix: " Meses",
+  },
+  integrations: {
+    eyebrow: "Infraestructura conectada",
+    titleLine1: "Conectamos fiat,",
+    titleLine2Start: "cripto y",
+    titleLine2Em: "liquidez global.",
+    description:
+      "Kawi opera como una infraestructura de liquidación híbrida conectando rails bancarios, stablecoins, exchanges y blockchains para mover valor entre países con máxima eficiencia.",
+  },
+  reviews: {
+    eyebrow: "Lo que dicen nuestros clientes",
+    rating: "Calificación",
+    starsSuffix: "estrellas",
+    companies: "Empresas que confían en nosotros",
+    cta: "Ver más en Trustpilot",
+    countries: { BR: "Brasil", CU: "Cuba" },
+    items: [
+      { title: "Son personas de confianza y trabajan con mucha rapidez", text: "Desde la primera operación me atendieron con mucha paciencia y claridad. Todo el proceso fue rápido, transparente y sin complicaciones. Lo que más valoro es la confianza que transmiten y la rapidez con la que ejecutan cada envío. Ya llevo varias operaciones con ellos y siempre cumplen exactamente como prometen." },
+      { title: "Rápida, confiable y segura", text: "La primera vez comencé con cierta desconfianza porque uno siempre duda al enviar dinero, pero desde el inicio fueron muy claros conmigo. Me explicaron todo el proceso, los tiempos y las tasas. Hasta hoy todo ha salido perfecto: rápido, seguro y sin errores. Ya se ha convertido en mi opción fija para enviar dinero." },
+      { title: "Llegó todo impecable y en tiempo", text: "Compré varios productos para mi familia y la experiencia fue excelente. El seguimiento fue constante y siempre me mantuvieron informada de cada paso. Todo llegó completo, en buen estado y dentro del tiempo estimado. Se nota que tienen organización y responsabilidad." },
+      { title: "Servicio muy profesional y transparente", text: "Lo que más me gustó fue la claridad con los precios y la rapidez de respuesta. Desde la cotización hasta la confirmación del servicio todo fue muy profesional. Me dieron seguimiento constante y respondieron cada duda en tiempo real. Es difícil encontrar ese nivel de atención hoy en día." },
+      { title: "Comprar pasajes nunca fue tan fácil", text: "Necesitaba resolver un viaje urgente y todo el proceso fue increíblemente rápido. Desde mi móvil hice todo y en cuestión de minutos tenía la reserva confirmada. Además me ayudaron con detalles importantes que yo desconocía. Muy recomendable para quien necesite rapidez." },
+      { title: "Muy buenos precios y excelente soporte", text: "Comparé varias opciones antes de decidirme y Kawi fue la más clara con sus tarifas. No hubo costos ocultos ni cambios inesperados. Además el soporte respondió rápido cada vez que necesité ayuda. La combinación entre buen precio y buena atención marca mucha diferencia." },
+      { title: "Entrega rápida, segura y organizada", text: "La experiencia fue excelente desde el inicio. El equipo estuvo pendiente de cada detalle y me mantuvieron informada en todo momento. La entrega se hizo más rápido de lo que esperaba y todo llegó correctamente. Sin dudas repetiré con ellos." },
+      { title: "Proceso impecable de principio a fin", text: "Desde la primera cotización sentí que todo estaba bien estructurado. La comunicación fue clara, el proceso sencillo y la confirmación rápida. Todo se sintió profesional y seguro. Es de esas plataformas que generan confianza desde el primer contacto." },
+      { title: "Atención rápida y muy humana", text: "Tenía muchas dudas antes de hacer la operación y me respondieron absolutamente todo con paciencia. Me guiaron paso a paso hasta terminar el proceso y eso me dio mucha tranquilidad. Se nota que entienden bien las necesidades de quienes estamos lejos de nuestra familia." },
+      { title: "Confianza total para operar", text: "Ya he usado el servicio varias veces y siempre ha funcionado perfectamente. Los tiempos de respuesta son rápidos, la atención es buena y el proceso es simple. Hoy en día eso vale mucho. Lo recomiendo especialmente para quienes necesitan enviar dinero o gestionar servicios hacia Cuba." },
+      { title: "Muy útil y con excelente acompañamiento", text: "No solo me ayudaron con la reserva, también me orientaron con varios documentos y requisitos que yo no tenía claros. Eso hizo que todo fuera mucho más fácil y rápido. El servicio es muy completo y el acompañamiento durante todo el proceso hace mucha diferencia." },
+    ],
+  },
+  cta: {
+    badge: "Infraestructura lista para escalar",
+    titleLine1: "Conecta fiat.",
+    titleLine2: "Liquida en blockchain.",
+    description:
+      "Integra la tecnología de Kawi en tu plataforma para procesar conversiones Fiat → Cripto y Cripto → Fiat con liquidación rápida, monitoreo en tiempo real y alcance internacional.",
+    ctaStart: "Comenzar integración",
+    ctaDownload: "Descargar en Play Store",
+    ctaDocs: "Ver documentación API",
+    badgeLine: "API • Widget • Liquidación híbrida • Marca blanca",
+  },
+  footer: {
+    description:
+      "Kawi opera como una infraestructura de liquidación híbrida conectando rails bancarios y blockchain para mover valor entre países de forma rápida, segura y programable.",
+    navigation: "Navegación",
+    community: "Comunidad",
+    legal: "Legal",
+    rights: "Todos los derechos reservados.",
+    active: "Plataforma activa 24/7",
+    nav: {
+      webApp: "Web App",
+      mobile: "Mobile App",
+      widgets: "Widgets",
+      api: "Api Service",
+      docs: "Documentación",
+      presentation: "Presentación",
+    },
+    communityLinks: {
+      blog: "Blog",
+      whatsapp1: "Whatsapp #1",
+      whatsapp2: "Whatsapp #2",
+      solana: "Solana Fundation",
+      accelerated: "Acelerados",
+    },
+    legalLinks: {
+      privacy: "Privacidad",
+      regulation: "Regulacion",
+      collabs: "Colaboraciones",
+      deleteAccount: "Eliminación de cuenta",
+      deleteData: "Eliminación de datos",
+    },
+  },
+  langModal: en.langModal,
+};
+
+const pt: typeof en = {
+  nav: {
+    services: "Serviços",
+    integrate: "Integrar",
+    values: "Valores",
+    mission: "Missão",
+    reviews: "Avaliações",
+    blog: "Blog",
+    ctaSend: "Enviar agora",
+    ctaDownload: "Baixar app",
+  },
+  hero: {
+    eyebrow: "Fiat para entrar. Blockchain para liquidar.",
+    titleLine1: "Infraestrutura de",
+    titleLine2: "Liquidação-",
+    rotating: ["Híbrida", "Fiat", "Cripto"],
+    description:
+      "A Kawi conecta a infraestrutura bancária e a blockchain para liquidar valor entre países de forma rápida, transparente e global usando Solana.",
+    ctaStart: "Começar agora",
+    ctaDownload: "Baixar o app",
+    ctaExplore: "Explorar infraestrutura",
+  },
+  infra: {
+    eyebrow: "Arquitetura da Kawi",
+    titleStart: "Como funciona nossa infraestrutura de",
+    titleEnd: "liquidação híbrida.",
+    subtitle:
+      "A Kawi conecta trilhos bancários e blockchain para transformar dinheiro local em liquidez global.",
+    items: [
+      {
+        title: "Infraestrutura Fiat",
+        desc: "Capturamos dinheiro localmente usando trilhos tradicionais como PIX e contas bancárias. Essa camada permite que qualquer usuário entre no sistema com dinheiro fiat de forma simples e acessível.",
+        tag: "Entrada",
+        cta: "Explorar →",
+      },
+      {
+        title: "Infraestrutura Blockchain",
+        desc: "Convertemos valor fiat em liquidez digital usando stablecoins e redes blockchain. Isso permite mover capital globalmente com velocidade, transparência e menor fricção.",
+        tag: "Movimento",
+        cta: "Explorar →",
+      },
+      {
+        title: "Motor de Liquidação",
+        desc: "Nosso motor conecta a infraestrutura bancária com a blockchain. Coordena conversão, execução e entrega final para completar a liquidação de valor entre sistemas distintos.",
+        tag: "Core",
+        cta: "Explorar →",
+      },
+      {
+        title: "Arquitetura Híbrida",
+        desc: "Combinamos o melhor dos dois mundos: fiat para acesso e adoção em massa, blockchain para velocidade, rastreabilidade e alcance global.",
+        tag: "Vantagem",
+        cta: "Explorar →",
+      },
+      {
+        title: "Camada de Segurança",
+        desc: "Cada operação é validada, auditada e rastreável. Nossa arquitetura reduz intermediários, minimiza pontos de falha e permite verificar cada liquidação de forma transparente e anônima.",
+        tag: "Segurança",
+        cta: "Explorar →",
+      },
+    ],
+  },
+  store: {
+    eyebrow: "Integração com a Kawi",
+    titleLine1: "Infraestrutura",
+    fiat: "Fiat",
+    crypto: "Cripto",
+    steps: [
+      {
+        title: "Kawi Widget",
+        description:
+          "Integre nosso widget e permita que seus usuários convertam fiat para cripto, cripto para fiat ou fiat para fiat dentro da sua plataforma em minutos.",
+        cta: "Integrar Widget",
+      },
+      {
+        title: "Kawi API",
+        description:
+          "Automatize depósitos, swaps e payouts com nossa API. Execute liquidações híbridas usando trilhos bancários e blockchain.",
+        cta: "Explorar API",
+      },
+    ],
+  },
+  expansion: {
+    eyebrow: "Kawi Network",
+    titleStart: "A rede de liquidação mais",
+    titleEm: "eficiente",
+    titleEnd: "da América Latina.",
+    description:
+      "A Kawi está expandindo sua infraestrutura híbrida pela América Latina, conectando trilhos bancários e blockchain para mover valor entre países de forma rápida, segura e programável.",
+    stats: [
+      { value: "1K+", label: "Transações criadas" },
+      { value: "1 min", label: "Tempo médio" },
+      { value: "100%", label: "Taxa de sucesso" },
+    ],
+    corridors: "Kawi Corridors",
+    expanding: "Em expansão",
+    countries: [
+      { country: "Brasil", region: "Operacional", status: "Live" },
+      { country: "Cuba", region: "Operacional", status: "Live" },
+      { country: "Venezuela", region: "Beta", status: "Testing" },
+      { country: "República Dominicana", region: "Beta", status: "Testing" },
+      { country: "México", region: "Beta", status: "Testing" },
+      { country: "Colômbia", region: "Beta", status: "Testing" },
+    ],
+  },
+  raas: {
+    eyebrow: "Plataforma em crescimento",
+    titleLine1: "Impacto real",
+    titleLine2: "em movimento.",
+    description:
+      "A Kawi conecta pessoas, negócios e infraestrutura financeira para mover valor entre países usando trilhos fiat e blockchain.",
+    live: "Ao vivo",
+    cta: "Explorar a Kawi",
+    metrics: [
+      "Volume total liquidado",
+      "Volume mensal liquidado",
+      "Transações concluídas",
+      "Receita total obtida",
+      "Tempo no mercado",
+      "Comunidade ativa",
+      "Crescimento mensal aproximado",
+      "Corredores ativos",
+      "Corredores em preparação",
+      "Corredores potenciais",
+    ],
+    monthsSuffix: " Meses",
+  },
+  integrations: {
+    eyebrow: "Infraestrutura conectada",
+    titleLine1: "Conectamos fiat,",
+    titleLine2Start: "cripto e",
+    titleLine2Em: "liquidez global.",
+    description:
+      "A Kawi opera como uma infraestrutura de liquidação híbrida conectando trilhos bancários, stablecoins, exchanges e blockchains para mover valor entre países com máxima eficiência.",
+  },
+  reviews: {
+    eyebrow: "O que dizem nossos clientes",
+    rating: "Avaliação",
+    starsSuffix: "estrelas",
+    companies: "Empresas que confiam em nós",
+    cta: "Ver mais no Trustpilot",
+    countries: { BR: "Brasil", CU: "Cuba" },
+    items: [
+      { title: "Pessoas de confiança que trabalham com muita rapidez", text: "Desde a primeira operação me atenderam com muita paciência e clareza. Todo o processo foi rápido, transparente e sem complicações. O que mais valorizo é a confiança que transmitem e a rapidez com que executam cada envio. Já fiz várias operações com eles e sempre cumprem exatamente como prometem." },
+      { title: "Rápida, confiável e segura", text: "Na primeira vez comecei com certa desconfiança porque sempre dá receio enviar dinheiro, mas desde o início foram muito claros comigo. Me explicaram todo o processo, os prazos e as taxas. Até hoje tudo saiu perfeito: rápido, seguro e sem erros. Já se tornou minha opção fixa para enviar dinheiro." },
+      { title: "Chegou tudo impecável e no prazo", text: "Comprei vários produtos para minha família e a experiência foi excelente. O acompanhamento foi constante e sempre me mantiveram informada de cada passo. Tudo chegou completo, em bom estado e dentro do tempo estimado. Dá pra ver que têm organização e responsabilidade." },
+      { title: "Serviço muito profissional e transparente", text: "O que mais gostei foi a clareza nos preços e a rapidez na resposta. Da cotação até a confirmação do serviço tudo foi muito profissional. Me deram acompanhamento constante e responderam cada dúvida em tempo real. É difícil encontrar esse nível de atenção hoje em dia." },
+      { title: "Comprar passagens nunca foi tão fácil", text: "Precisava resolver uma viagem urgente e todo o processo foi incrivelmente rápido. Pelo celular fiz tudo e em questão de minutos já tinha a reserva confirmada. Além disso me ajudaram com detalhes importantes que eu desconhecia. Muito recomendado para quem precisa de rapidez." },
+      { title: "Ótimos preços e excelente suporte", text: "Comparei várias opções antes de decidir e a Kawi foi a mais clara com suas tarifas. Não houve custos ocultos nem mudanças inesperadas. Além disso, o suporte respondeu rápido sempre que precisei. A combinação de bom preço e bom atendimento faz muita diferença." },
+      { title: "Entrega rápida, segura e organizada", text: "A experiência foi excelente desde o início. A equipe ficou atenta a cada detalhe e me mantiveram informada o tempo todo. A entrega foi feita mais rápido do que eu esperava e tudo chegou corretamente. Sem dúvidas voltarei a usar." },
+      { title: "Processo impecável do início ao fim", text: "Desde a primeira cotação senti que tudo estava bem estruturado. A comunicação foi clara, o processo simples e a confirmação rápida. Tudo parecia profissional e seguro. É uma dessas plataformas que geram confiança desde o primeiro contato." },
+      { title: "Atendimento rápido e muito humano", text: "Eu tinha muitas dúvidas antes de fazer a operação e me responderam absolutamente tudo com paciência. Me guiaram passo a passo até terminar o processo e isso me deu muita tranquilidade. Dá pra ver que entendem bem as necessidades de quem está longe da família." },
+      { title: "Confiança total para operar", text: "Já usei o serviço várias vezes e sempre funcionou perfeitamente. Os tempos de resposta são rápidos, o atendimento é bom e o processo é simples. Hoje em dia isso vale muito. Recomendo especialmente para quem precisa enviar dinheiro ou gerenciar serviços para Cuba." },
+      { title: "Muito útil e com excelente acompanhamento", text: "Não só me ajudaram com a reserva, também me orientaram com vários documentos e requisitos que eu não tinha claros. Isso fez com que tudo ficasse muito mais fácil e rápido. O serviço é muito completo e o acompanhamento durante todo o processo faz muita diferença." },
+    ],
+  },
+  cta: {
+    badge: "Infraestrutura pronta para escalar",
+    titleLine1: "Conecte fiat.",
+    titleLine2: "Liquide na blockchain.",
+    description:
+      "Integre a tecnologia da Kawi à sua plataforma para processar conversões Fiat → Cripto e Cripto → Fiat com liquidação rápida, monitoramento em tempo real e alcance internacional.",
+    ctaStart: "Iniciar integração",
+    ctaDownload: "Baixar na Play Store",
+    ctaDocs: "Ver documentação da API",
+    badgeLine: "API • Widget • Liquidação híbrida • White label",
+  },
+  footer: {
+    description:
+      "A Kawi opera como uma infraestrutura de liquidação híbrida conectando trilhos bancários e blockchain para mover valor entre países de forma rápida, segura e programável.",
+    navigation: "Navegação",
+    community: "Comunidade",
+    legal: "Legal",
+    rights: "Todos os direitos reservados.",
+    active: "Plataforma ativa 24/7",
+    nav: {
+      webApp: "Web App",
+      mobile: "App Mobile",
+      widgets: "Widgets",
+      api: "Serviço de API",
+      docs: "Documentação",
+      presentation: "Apresentação",
+    },
+    communityLinks: {
+      blog: "Blog",
+      whatsapp1: "Whatsapp #1",
+      whatsapp2: "Whatsapp #2",
+      solana: "Solana Foundation",
+      accelerated: "Acelerados",
+    },
+    legalLinks: {
+      privacy: "Privacidade",
+      regulation: "Regulação",
+      collabs: "Colaborações",
+      deleteAccount: "Exclusão de conta",
+      deleteData: "Exclusão de dados",
+    },
+  },
+  langModal: en.langModal,
+};
+
+export const translations: Record<Lang, typeof en> = { en, es, pt };
+export type Translations = typeof en;

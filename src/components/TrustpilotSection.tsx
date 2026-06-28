@@ -129,7 +129,6 @@ const reviews = [
   },
 ];
 
-// Componente de estrellas (sin cambios)
 const StarRating = ({ count }: { count: number }) => (
   <div className="flex gap-0.5">
     {Array.from({ length: count }).map((_, i) => (
@@ -336,7 +335,6 @@ const TestimonialsSection = () => {
         `}</style>
       </div>
 
-      {/* CTA a Trustpilot (opcional) */}
       <div className="text-center mt-16">
         <a
           href={DOCS_URL}

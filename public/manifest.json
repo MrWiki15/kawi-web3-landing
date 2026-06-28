@@ -1,12 +1,11 @@
 {
-  "name": "Kawi Remesas",
+  "name": "Kawi BRL to USDC Settlement Engine",
   "short_name": "Kawi",
-  "description": "Plataforma digital para remesas Brasil → Cuba. Envía dinero, compra productos y disfruta de servicios con la mejor tasa de cambio.",
-  "start_url": "/app",
+  "description": "Programmable hybrid settlement engine for automatically liquidating BRL into USDC.",
+  "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "orientation": "portrait-primary",
-  "background_color": "#f0f4f0",
+  "background_color": "#f8f7f0",
   "theme_color": "#1d5a2f",
   "icons": [
     {
@@ -25,59 +24,6 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
-    }
-  ],
-  "categories": ["finance", "productivity"],
-  "screenshots": [
-    {
-      "src": "/bannerPC.jpg",
-      "sizes": "1024x576",
-      "form_factor": "wide",
-      "type": "image/jpg"
-    },
-    {
-      "src": "/bannerMovil.jpg",
-      "sizes": "540x720",
-      "form_factor": "narrow",
-      "type": "image/jpg"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Enviar Remesa",
-      "short_name": "Enviar",
-      "description": "Envía dinero a Cuba de forma rápida y segura",
-      "url": "/app/enviar?utm_source=shortcut",
-      "icons": [
-        {
-          "src": "/logo192.png",
-          "sizes": "192x192"
-        }
-      ]
-    },
-    {
-      "name": "Tienda Online",
-      "short_name": "Tienda",
-      "description": "Compra productos con entrega en Cuba",
-      "url": "/app/tienda?utm_source=shortcut",
-      "icons": [
-        {
-          "src": "/logo192.png",
-          "sizes": "192x192"
-        }
-      ]
-    },
-    {
-      "name": "Sorteos",
-      "short_name": "Rifas",
-      "description": "Participa en nuestros sorteos mensuales",
-      "url": "/app/sorteo?utm_source=shortcut",
-      "icons": [
-        {
-          "src": "/logo192.png",
-          "sizes": "192x192"
-        }
-      ]
     }
   ]
 }

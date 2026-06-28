@@ -53,7 +53,7 @@ const Navbar = () => {
           <a href={DOCS_URL} className="flex items-center gap-2 group">
             <img
               src={kawiLogo}
-              alt="Kawi Remesas"
+              alt="Kawi BRL to USDC settlement engine"
               className={`object-contain transition-all duration-500 ${
                 isScrolled ? "h-7 w-7" : "h-8 w-8 md:h-9 md:w-9"
               }`}

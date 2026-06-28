@@ -11,13 +11,7 @@ const stepCode = [
   src="https://docs.kawiservices.com"
   data-app-id="YOUR_APP_ID">
 </script>`,
-  `curl -X POST https://docs.kawiservices.com 
-
-  -H "x-app-id: APP_ID" 
-  -H "x-api-key: API_KEY" 
-  -H "Content-Type: application/json" 
-  -d '{ "amount_brl": 100 }'
-  `,
+  `curl https://docs.kawiservices.com`,
 ];
 
 const stepHrefs = [DOCS_URL, DOCS_URL];

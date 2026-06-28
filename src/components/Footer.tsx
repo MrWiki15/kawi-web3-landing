@@ -93,7 +93,7 @@ const Footer = () => {
             {/* Marca */}
             <div className="col-span-2">
               <a href={DOCS_URL} className="inline-flex items-center gap-3 mb-6">
-                <img src={kawiLogo} alt="Kawi Remesas" className="h-10 w-10 object-contain" />
+                <img src={kawiLogo} alt="Kawi BRL to USDC settlement engine" className="h-10 w-10 object-contain" />
                 <span className="text-2xl font-display font-bold">Kawi</span>
               </a>
               <p className="text-primary-foreground/70 leading-relaxed mb-8 max-w-xs">{t.footer.description}</p>

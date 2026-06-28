@@ -1,6 +1,6 @@
-# Kawi Web Landing
+# Kawi BRL to USDC Settlement Engine
 
-Landing independiente de Kawi Web, creada con React, Vite, TypeScript y Tailwind.
+Landing page for Kawi's hybrid settlement engine for automatic, programmable BRL to USDC liquidation.
 
 ## Scripts
 
@@ -9,5 +9,3 @@ npm run dev
 npm run build
 npm run preview
 ```
-
-El proyecto original en `../kawi-web/app` se usa solo como fuente de lectura para copiar la landing.

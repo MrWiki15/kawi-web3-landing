@@ -4,46 +4,62 @@ import { ArrowUpRight } from "lucide-react";
 import kawiLogo from "@/assets/kawi-logo.png";
 import { AnimatedWave } from "@/components/ui/animated-wave";
 import { useT } from "@/contexts/LanguageContext";
-import { DOCS_URL } from "@/lib/links";
+import {
+  API_SERVICES_URL,
+  BLOG_URL,
+  COLLABORATIONS_MAILTO,
+  DOCS_URL,
+  FACEBOOK_URL,
+  MOBILE_APP_URL,
+  PRESENTATION_URL,
+  SOLANA_FOUNDATION_URL,
+  TRUSTPILOT_URL,
+  WEB_APP_URL,
+  WHATSAPP_1_URL,
+  WHATSAPP_2_URL,
+  WIDGETS_URL,
+} from "@/lib/links";
 
 const Footer = () => {
   const t = useT();
 
   const navigationLinks = [
-    { name: t.footer.nav.webApp, href: DOCS_URL },
-    { name: t.footer.nav.mobile, href: DOCS_URL },
-    { name: t.footer.nav.widgets, href: DOCS_URL },
-    { name: t.footer.nav.api, href: DOCS_URL },
+    { name: t.footer.nav.webApp, href: WEB_APP_URL },
+    { name: t.footer.nav.mobile, href: MOBILE_APP_URL },
+    { name: t.footer.nav.widgets, href: WIDGETS_URL },
+    { name: t.footer.nav.api, href: API_SERVICES_URL },
     { name: t.footer.nav.docs, href: DOCS_URL },
     {
       name: t.footer.nav.presentation,
-      href: DOCS_URL,
+      href: PRESENTATION_URL,
     },
   ];
 
   const communityLinks = [
-    { name: t.footer.communityLinks.blog, href: DOCS_URL },
+    { name: t.footer.communityLinks.blog, href: BLOG_URL },
+    { name: "Facebook", href: FACEBOOK_URL },
+    { name: "Trustpilot", href: TRUSTPILOT_URL },
     {
       name: t.footer.communityLinks.whatsapp1,
-      href: DOCS_URL,
+      href: WHATSAPP_1_URL,
     },
     {
       name: t.footer.communityLinks.whatsapp2,
-      href: DOCS_URL,
+      href: WHATSAPP_2_URL,
     },
     {
       name: t.footer.communityLinks.solana,
-      href: DOCS_URL,
+      href: SOLANA_FOUNDATION_URL,
       badge: t.footer.communityLinks.accelerated,
     },
   ];
 
   const legalLinks = [
-    { name: t.footer.legalLinks.privacy, href: DOCS_URL },
-    { name: t.footer.legalLinks.regulation, href: DOCS_URL },
-    { name: t.footer.legalLinks.collabs, href: DOCS_URL },
-    { name: t.footer.legalLinks.deleteAccount, href: DOCS_URL },
-    { name: t.footer.legalLinks.deleteData, href: DOCS_URL },
+    { name: t.footer.legalLinks.privacy, href: "/privacy" },
+    { name: t.footer.legalLinks.regulation, href: "/regulation" },
+    { name: t.footer.legalLinks.collabs, href: COLLABORATIONS_MAILTO },
+    { name: t.footer.legalLinks.deleteAccount, href: "/account-deletion" },
+    { name: t.footer.legalLinks.deleteData, href: "/data-deletion" },
   ];
 
   const renderLink = (link: { name: string; href: string; badge?: string }) => {
@@ -92,21 +108,21 @@ const Footer = () => {
           <div className="grid grid-cols-2 md:grid-cols-6 gap-12 lg:gap-8">
             {/* Marca */}
             <div className="col-span-2">
-              <a href={DOCS_URL} className="inline-flex items-center gap-3 mb-6">
+              <a href={WEB_APP_URL} className="inline-flex items-center gap-3 mb-6">
                 <img src={kawiLogo} alt="Kawi BRL to USDC settlement engine" className="h-10 w-10 object-contain" />
                 <span className="text-2xl font-display font-bold">Kawi</span>
               </a>
               <p className="text-primary-foreground/70 leading-relaxed mb-8 max-w-xs">{t.footer.description}</p>
               <div className="flex gap-6">
                 <a
-                  href={DOCS_URL}
+                  href={BLOG_URL}
                   className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors flex items-center gap-1 group"
                 >
                   Twitter
                   <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                 </a>
                 <a
-                  href={DOCS_URL}
+                  href={FACEBOOK_URL}
                   className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors flex items-center gap-1 group"
                 >
                   Facebook

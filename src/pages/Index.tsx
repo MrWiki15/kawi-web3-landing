@@ -13,7 +13,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { useRedirectReturningUser } from "@/components/CompletedRemittanceModal";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import LanguageDetectModal from "@/components/LanguageDetectModal";
-import { DOCS_URL } from "@/lib/links";
+import { DOCS_URL, WEB_APP_URL } from "@/lib/links";
 
 const seoTitle = "Kawi | Motor de liquidacion hibrida BRL a USDC";
 const seoDescription =
@@ -25,14 +25,14 @@ const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Kawi BRL to USDC Settlement Engine",
-  url: DOCS_URL,
+  url: WEB_APP_URL,
   serviceType: "Hybrid fiat-blockchain settlement engine",
   description:
     "Kawi provides a programmable hybrid settlement engine for automatically liquidating BRL into USDC through fiat and blockchain infrastructure.",
   provider: {
     "@type": "Organization",
     name: "Kawi",
-    url: DOCS_URL,
+    url: WEB_APP_URL,
   },
   areaServed: ["BR", "Global"],
 };
@@ -95,11 +95,11 @@ const Index = () => {
           <title>{seoTitle}</title>
           <meta name="description" content={seoDescription} />
           <meta name="keywords" content={seoKeywords} />
-          <link rel="canonical" href={DOCS_URL} />
+          <link rel="canonical" href={WEB_APP_URL} />
           <meta property="og:type" content="website" />
           <meta property="og:title" content={seoTitle} />
           <meta property="og:description" content={seoDescription} />
-          <meta property="og:url" content={DOCS_URL} />
+          <meta property="og:url" content={WEB_APP_URL} />
           <meta property="og:image" content="/logo512.png" />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content={seoTitle} />

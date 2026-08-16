@@ -2,19 +2,20 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useT } from "@/contexts/LanguageContext";
-import { DOCS_URL } from "@/lib/links";
+import { API_SERVICES_URL, WIDGETS_URL } from "@/lib/links";
 
 const stepCode = [
-  `<div id="kawi-widget"></div>
+  `import { mountKawiRaasWidget } from "@kawiservices/sdk/widget";
 
-<script
-  src="https://docs.kawiservices.com"
-  data-app-id="YOUR_APP_ID">
-</script>`,
-  `curl https://docs.kawiservices.com`,
+mountKawiRaasWidget("#kawi-widget", {
+  baseUrl: "https://mainnet.kawiservices.com",
+  appId: "YOUR_APP_ID",
+});`,
+  `curl https://mainnet.kawiservices.com/api/platform/stats \\
+  -H "x-api-key: $KAWI_API_KEY"`,
 ];
 
-const stepHrefs = [DOCS_URL, DOCS_URL];
+const stepHrefs = [WIDGETS_URL, API_SERVICES_URL];
 const stepNumbers = ["I", "II"];
 
 export default function KawiIntegrationsSection() {

@@ -4,16 +4,16 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import kawiLogo from "@/assets/kawi-logo.png";
 import { useT } from "@/contexts/LanguageContext";
-import { DOCS_URL } from "@/lib/links";
+import { WEB_APP_URL } from "@/lib/links";
 
 const Navbar = () => {
   const t = useT();
   const navLinks = [
-    { name: t.nav.services, href: "#servicios" },
-    { name: t.nav.integrate, href: "#integrations" },
-    { name: t.nav.values, href: "#valores" },
-    { name: t.nav.mission, href: "#mision" },
-    { name: t.nav.reviews, href: "#reviews" },
+    { name: t.nav.services, href: "/#servicios" },
+    { name: t.nav.integrate, href: "/#integrations" },
+    { name: t.nav.values, href: "/#valores" },
+    { name: t.nav.mission, href: "/#mision" },
+    { name: t.nav.reviews, href: "/#reviews" },
   ];
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,7 +27,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const ctaHref = DOCS_URL;
+  const ctaHref = WEB_APP_URL;
   const ctaLabel = t.nav.ctaSend;
 
 
@@ -50,7 +50,7 @@ const Navbar = () => {
           }`}
         >
           {/* Logo */}
-          <a href={DOCS_URL} className="flex items-center gap-2 group">
+          <a href="/" className="flex items-center gap-2 group">
             <img
               src={kawiLogo}
               alt="Kawi BRL to USDC settlement engine"

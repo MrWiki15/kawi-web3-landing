@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://docs.kawiservices.com/sitemap.xml
+Sitemap: https://kawiservices.com.br/sitemap.xml

@@ -4,15 +4,22 @@ import { useEffect, useState, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { useT } from "@/contexts/LanguageContext";
 import { DOCS_URL } from "@/lib/links";
+import {
+  fetchLandingMetrics,
+  getFallbackLandingMetrics,
+  type LandingMetric,
+} from "@/lib/motorStats";
 
 function AnimatedCounter({
   end,
   suffix = "",
   prefix = "",
+  formatter = "number",
 }: {
   end: number;
   suffix?: string;
   prefix?: string;
+  formatter?: LandingMetric["formatter"];
 }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -50,11 +57,21 @@ function AnimatedCounter({
 
   return (
     <div ref={ref} className="text-5xl lg:text-7xl font-display tracking-tight">
-      {prefix}
-      {count.toLocaleString()}
-      {suffix}
+      {formatMetricValue(count, formatter, prefix, suffix)}
     </div>
   );
+}
+
+function formatMetricValue(
+  value: number,
+  formatter: LandingMetric["formatter"] = "number",
+  prefix = "",
+  suffix = "",
+) {
+  if (formatter === "brl") return `R$ ${value.toLocaleString("en-US")}`;
+  if (formatter === "percent") return `${value.toLocaleString("en-US")}%`;
+  if (formatter === "months") return `${value.toLocaleString("en-US")}${suffix}`;
+  return `${prefix}${value.toLocaleString("en-US")}${suffix}`;
 }
 
 
@@ -62,27 +79,40 @@ export default function RaaS() {
   const t = useT();
   const [time, setTime] = useState(new Date());
   const [isVisible, setIsVisible] = useState(false);
+  const [metricValues, setMetricValues] = useState<LandingMetric[]>(
+    getFallbackLandingMetrics(),
+  );
   const sectionRef = useRef<HTMLElement>(null);
 
-  const metricValues = [
-    { value: 750000, suffix: "+", prefix: "R$ " },
-    { value: 100000, suffix: "+", prefix: "R$ " },
-    { value: 1000, suffix: "+", prefix: "" },
-    { value: 50000, suffix: "+", prefix: "R$ " },
-    { value: 6, suffix: t.raas.monthsSuffix, prefix: "" },
-    { value: 4000, suffix: "+", prefix: "" },
-    { value: 46, suffix: "%", prefix: "" },
-    { value: 2, suffix: "", prefix: "" },
-    { value: 4, suffix: "", prefix: "" },
-    { value: 18, suffix: "", prefix: "" },
-  ];
-  const metrics = metricValues.map((m, i) => ({ ...m, label: t.raas.metrics[i] }));
+  const metrics = metricValues.map((m, i) => ({
+    ...m,
+    suffix: m.formatter === "months" ? t.raas.monthsSuffix : m.suffix,
+    label: t.raas.metrics[i],
+  }));
 
   const columns = 2;
 
   useEffect(() => {
     const interval = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    const refreshMetrics = () => {
+      fetchLandingMetrics(controller.signal)
+        .then(setMetricValues)
+        .catch(() => setMetricValues(getFallbackLandingMetrics()));
+    };
+
+    refreshMetrics();
+    const interval = setInterval(refreshMetrics, 60000);
+
+    return () => {
+      controller.abort();
+      clearInterval(interval);
+    };
   }, []);
 
   useEffect(() => {
@@ -177,6 +207,7 @@ export default function RaaS() {
                 end={metric.value}
                 suffix={metric.suffix}
                 prefix={metric.prefix}
+                formatter={metric.formatter}
               />
 
               <div className="mt-4 text-lg text-muted-foreground">

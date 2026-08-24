@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { useT } from "@/contexts/LanguageContext";
-import { DOCS_URL } from "@/lib/links";
+import { WEB_APP_URL } from "@/lib/links";
 import {
   fetchLandingMetrics,
   getFallbackLandingMetrics,
@@ -224,7 +224,7 @@ export default function RaaS() {
           }`}
         >
           <a
-            href={DOCS_URL}
+            href={WEB_APP_URL}
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-lg shadow-primary/30"
           >
             <ArrowRight className="w-4 h-4" />

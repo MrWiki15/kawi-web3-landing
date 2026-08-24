@@ -13,7 +13,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { useRedirectReturningUser } from "@/components/CompletedRemittanceModal";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import LanguageDetectModal from "@/components/LanguageDetectModal";
-import { DOCS_URL, WEB_APP_URL } from "@/lib/links";
+import { WEB_APP_URL } from "@/lib/links";
 
 const seoTitle = "Kawi | Motor de liquidacion hibrida BRL a USDC";
 const seoDescription =

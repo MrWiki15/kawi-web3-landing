@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { AnimatedTetrahedron } from "./ui/animated-tetrahedron";
 import { useT } from "@/contexts/LanguageContext";
-import { DOCS_URL } from "@/lib/links";
+import { API_SERVICES_URL, WIDGETS_URL } from "@/lib/links";
 
 const CTASection = () => {
   const t = useT();
@@ -32,7 +32,7 @@ const CTASection = () => {
     });
   };
 
-  const ctaHref = DOCS_URL;
+  const ctaHref = WIDGETS_URL;
   const ctaLabel = t.cta.ctaStart;
 
   return (
@@ -89,7 +89,7 @@ const CTASection = () => {
                   </a>
 
                   <a
-                    href={DOCS_URL}
+                    href={API_SERVICES_URL}
                     className="border border-foreground/20 text-foreground px-8 h-14 text-base rounded-full font-semibold inline-flex items-center justify-center hover:bg-foreground/5 transition-colors"
                   >
                     {t.cta.ctaDocs}

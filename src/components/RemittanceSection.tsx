@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import "@lottiefiles/dotlottie-wc";
 import { useT } from "@/contexts/LanguageContext";
-import { DOCS_URL } from "@/lib/links";
+import { API_SERVICES_URL } from "@/lib/links";
 
 const InfrastructureSection = () => {
   const t = useT();
@@ -25,7 +25,7 @@ const InfrastructureSection = () => {
     desc: it.desc,
     tag: it.tag,
     cta: it.cta,
-    href: DOCS_URL,
+    href: API_SERVICES_URL,
   }));
 
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { AnimatedSphere } from "./AnimatedSphere";
 import { useT } from "@/contexts/LanguageContext";
-import { DOCS_URL } from "@/lib/links";
+import { WEB_APP_URL } from "@/lib/links";
 
 const HeroSection = () => {
   const t = useT();
@@ -129,7 +129,7 @@ const HeroSection = () => {
             }}
           >
             <a
-              href={DOCS_URL}
+              href={WEB_APP_URL}
               className="bg-primary text-primary-foreground px-8 h-14 text-base rounded-full font-semibold inline-flex items-center justify-center shadow-lg shadow-primary/30 transition-transform hover:-translate-y-1"
             >
               {t.hero.ctaStart}
@@ -137,7 +137,7 @@ const HeroSection = () => {
             </a>
 
             <a
-              href={DOCS_URL}
+              href="#servicios"
               className="border border-border text-foreground px-8 h-14 text-base rounded-full font-semibold inline-flex items-center justify-center transition-all hover:-translate-y-1 hover:bg-muted/30"
             >
               {t.hero.ctaExplore}

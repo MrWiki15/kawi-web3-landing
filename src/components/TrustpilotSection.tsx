@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Star } from "lucide-react";
 import { useLanguage, useT } from "@/contexts/LanguageContext";
-import { DOCS_URL } from "@/lib/links";
+import { TRUSTPILOT_URL } from "@/lib/links";
 
 
 const empresas = [
@@ -337,7 +337,7 @@ const TestimonialsSection = () => {
 
       <div className="text-center mt-16">
         <a
-          href={DOCS_URL}
+          href={TRUSTPILOT_URL}
           className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-lg shadow-primary/30"
         >
           {t.reviews.cta}

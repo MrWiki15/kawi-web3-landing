@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# SPA redirect route, no content of its own.
+Disallow: /app
+
 Sitemap: https://kawiservices.com.br/sitemap.xml

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Star } from "lucide-react";
+import { ExternalLink, Star } from "lucide-react";
 import { useLanguage, useT } from "@/contexts/LanguageContext";
 import { TRUSTPILOT_URL } from "@/lib/links";
 
@@ -338,9 +338,13 @@ const TestimonialsSection = () => {
       <div className="text-center mt-16">
         <a
           href={TRUSTPILOT_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${t.reviews.cta} (Trustpilot)`}
           className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-lg shadow-primary/30"
         >
           {t.reviews.cta}
+          <ExternalLink className="w-4 h-4" />
         </a>
       </div>
     </section>

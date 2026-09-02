@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import kawiLogo from "@/assets/kawi-logo.png";
 import { useT } from "@/contexts/LanguageContext";
-import { WEB_APP_URL } from "@/lib/links";
+import { ABOUT_URL, BLOG_URL, WEB_APP_URL } from "@/lib/links";
 
 const Navbar = () => {
   const t = useT();
@@ -14,6 +14,8 @@ const Navbar = () => {
     { name: t.nav.values, href: "/#valores" },
     { name: t.nav.mission, href: "/#mision" },
     { name: t.nav.reviews, href: "/#reviews" },
+    { name: t.nav.about, href: ABOUT_URL },
+    { name: t.nav.blog, href: BLOG_URL },
   ];
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,7 +70,7 @@ const Navbar = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-7">
+          <div className="hidden md:flex items-center gap-5 lg:gap-7">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -85,6 +87,8 @@ const Navbar = () => {
           <div className="hidden md:block">
             <a
               href={ctaHref}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`hero-gradient text-primary-foreground rounded-full font-semibold transition-all duration-500 hover:opacity-90 shadow-md whitespace-nowrap ${
                 isScrolled ? "px-4 py-1.5 text-xs" : "px-5 py-2.5 text-sm"
               }`}
@@ -152,6 +156,8 @@ const Navbar = () => {
           >
             <a
               href={ctaHref}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
               className="flex-1 hero-gradient text-primary-foreground rounded-full h-14 text-base font-semibold flex items-center justify-center shadow-md"
             >

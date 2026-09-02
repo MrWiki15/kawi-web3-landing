@@ -205,6 +205,8 @@ export default function KawiIntegrationsSection() {
 
                 <a
                   href={steps[activeStep].href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm font-semibold text-background hover:opacity-70 transition-opacity"
                 >
                   {steps[activeStep].cta}

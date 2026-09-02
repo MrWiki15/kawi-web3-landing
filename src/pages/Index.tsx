@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import InfrastructureSection from "@/components/RemittanceSection";
@@ -11,30 +10,41 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useRedirectReturningUser } from "@/components/CompletedRemittanceModal";
-import { LanguageProvider } from "@/contexts/LanguageContext";
-import LanguageDetectModal from "@/components/LanguageDetectModal";
-import { WEB_APP_URL } from "@/lib/links";
+import Seo, { organizationJsonLd, websiteJsonLd } from "@/components/Seo";
+import { SITE_URL } from "@/lib/links";
 
-const seoTitle = "Kawi | Motor de liquidacion hibrida BRL a USDC";
+const seoTitle =
+  "Kawi | Hybrid BRL to USDC Settlement Engine for Latin America";
 const seoDescription =
-  "Kawi automatiza la liquidacion BRL -> USDC con un motor hibrido fiat-blockchain, programable por API para convertir pagos locales en liquidez stablecoin.";
-const seoKeywords =
-  "BRL a USDC, motor de liquidacion hibrida, liquidacion programable, fiat to stablecoin, API BRL USDC, stablecoin settlement, Pix to USDC, Kawi";
+  "Kawi runs a hybrid settlement engine: PIX and local fiat rails for access, Solana and USDC for movement, in one programmable, auditable operation.";
+const seoKeywords = [
+  "BRL to USDC",
+  "hybrid settlement engine",
+  "programmable settlement",
+  "fiat to stablecoin",
+  "PIX to USDC",
+  "stablecoin settlement Brazil",
+  "cross-border payments latam",
+  "motor de liquidacion hibrida",
+  "liquidacao BRL USDC",
+  "Kawi",
+];
 
 const serviceJsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
+  "@id": `${SITE_URL}/#service`,
   name: "Kawi BRL to USDC Settlement Engine",
-  url: WEB_APP_URL,
+  url: SITE_URL,
   serviceType: "Hybrid fiat-blockchain settlement engine",
   description:
-    "Kawi provides a programmable hybrid settlement engine for automatically liquidating BRL into USDC through fiat and blockchain infrastructure.",
-  provider: {
-    "@type": "Organization",
-    name: "Kawi",
-    url: WEB_APP_URL,
+    "Kawi provides a programmable hybrid settlement engine that turns local BRL payments into USDC liquidity using fiat and blockchain infrastructure.",
+  provider: { "@id": `${SITE_URL}/#organization` },
+  areaServed: ["BR", "Latin America"],
+  audience: {
+    "@type": "Audience",
+    audienceType: "Platforms, marketplaces and remittance operators",
   },
-  areaServed: ["BR", "Global"],
 };
 
 const faqJsonLd = {
@@ -43,42 +53,50 @@ const faqJsonLd = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Que hace el motor de liquidacion hibrida de Kawi?",
+      name: "What does Kawi's hybrid settlement engine do?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Kawi conecta infraestructura fiat y blockchain para automatizar la liquidacion de pagos en BRL hacia liquidez en USDC.",
+        text: "Kawi connects fiat and blockchain infrastructure to automate the settlement of BRL payments into USDC liquidity, coordinating capture, conversion, on-chain settlement and delivery as a single auditable operation.",
       },
     },
     {
       "@type": "Question",
-      name: "Que corredor de liquidacion destaca Kawi?",
+      name: "Which settlement corridor is live today?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "La landing se enfoca en la liquidacion BRL -> USDC, pensada para convertir pagos locales en Brasil en stablecoin de forma automatica.",
+        text: "Brazil is Kawi's live corridor, focused on turning local PIX and bank payments into USDC. Additional Latin American corridors are in testing.",
       },
     },
     {
       "@type": "Question",
-      name: "Se puede integrar por API?",
+      name: "Is Kawi regulated?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Si. Kawi esta pensado como infraestructura programable para que productos, plataformas y operaciones financieras puedan iniciar y monitorear liquidaciones BRL -> USDC.",
+        text: "Kawi is a regulated company in Brazil and is in the process of strengthening its regulatory framework for digital assets, so the stablecoin side of the engine is covered by the same standard of authorization and supervision as the fiat side.",
       },
     },
     {
       "@type": "Question",
-      name: "Por que usar USDC como activo de liquidacion?",
+      name: "Can Kawi be integrated through an API?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "USDC permite representar liquidez digital en una stablecoin ampliamente utilizada, facilitando operaciones programables, trazables y conectadas a infraestructura blockchain.",
+        text: "Yes. Kawi is programmable infrastructure: platforms can start, monitor and reconcile BRL to USDC settlements through the API, or embed the widget directly in their product.",
       },
     },
     {
       "@type": "Question",
-      name: "Que significa liquidacion automatica y programable?",
+      name: "Why does Kawi settle on Solana with USDC?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Significa que el flujo de entrada en BRL, conversion y salida en USDC puede coordinarse mediante reglas, API y eventos operativos sin depender de procesos manuales en cada paso.",
+        text: "The blockchain leg needs fast confirmation, fees low enough not to distort small tickets, and deep stablecoin liquidity. Solana with native USDC satisfies all three, which keeps end-to-end settlement close to one minute.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How long does a settlement take?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Typical end-to-end settlement is around one minute, with the fiat legs rather than the blockchain leg accounting for most of that time.",
       },
     },
   ],
@@ -88,54 +106,39 @@ const Index = () => {
   useRedirectReturningUser();
 
   return (
-    <LanguageProvider>
-      <div className="min-h-screen bg-background">
-        <LanguageDetectModal />
-        <Helmet>
-          <title>{seoTitle}</title>
-          <meta name="description" content={seoDescription} />
-          <meta name="keywords" content={seoKeywords} />
-          <link rel="canonical" href={WEB_APP_URL} />
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content={seoTitle} />
-          <meta property="og:description" content={seoDescription} />
-          <meta property="og:url" content={WEB_APP_URL} />
-          <meta property="og:image" content="/logo512.png" />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content={seoTitle} />
-          <meta name="twitter:description" content={seoDescription} />
-          <meta name="twitter:image" content="/logo512.png" />
-          <script type="application/ld+json">
-            {JSON.stringify(serviceJsonLd)}
-          </script>
-          <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
-        </Helmet>
-        <Navbar />
-        <HeroSection />
-        <ScrollReveal>
-          <InfrastructureSection />
-        </ScrollReveal>
-        <ScrollReveal>
-          <KawiIntegrationsSection />
-        </ScrollReveal>
-        <ScrollReveal>
-          <KawiExpansionSection />
-        </ScrollReveal>
-        <ScrollReveal>
-          <RaaS />
-        </ScrollReveal>
-        <ScrollReveal>
-          <IntegrationsSection />
-        </ScrollReveal>
-        <ScrollReveal>
-          <TestimonialsSection />
-        </ScrollReveal>
-        <ScrollReveal>
-          <CTASection />
-        </ScrollReveal>
-        <Footer />
-      </div>
-    </LanguageProvider>
+    <div className="min-h-screen bg-background">
+      <Seo
+        title={seoTitle}
+        description={seoDescription}
+        path="/"
+        keywords={seoKeywords}
+        jsonLd={[organizationJsonLd, websiteJsonLd, serviceJsonLd, faqJsonLd]}
+      />
+      <Navbar />
+      <HeroSection />
+      <ScrollReveal>
+        <InfrastructureSection />
+      </ScrollReveal>
+      <ScrollReveal>
+        <KawiIntegrationsSection />
+      </ScrollReveal>
+      <ScrollReveal>
+        <KawiExpansionSection />
+      </ScrollReveal>
+      <ScrollReveal>
+        <RaaS />
+      </ScrollReveal>
+      <ScrollReveal>
+        <IntegrationsSection />
+      </ScrollReveal>
+      <ScrollReveal>
+        <TestimonialsSection />
+      </ScrollReveal>
+      <ScrollReveal>
+        <CTASection />
+      </ScrollReveal>
+      <Footer />
+    </div>
   );
 };
 

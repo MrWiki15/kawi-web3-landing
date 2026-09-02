@@ -1,57 +1,97 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kawi | Motor de liquidacion hibrida BRL a USDC</title>
+    <meta name="theme-color" content="#1d5a2f" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!--
+      These tags carry `data-rh` so react-helmet-async replaces them on mount
+      instead of appending a duplicate set. They are the fallback that non-JS
+      crawlers see, and they describe the landing page.
+    -->
+    <title data-rh="true">
+      Kawi | Hybrid BRL to USDC Settlement Engine for Latin America
+    </title>
     <meta
+      data-rh="true"
       name="description"
-      content="Kawi automatiza la liquidacion BRL -> USDC con un motor hibrido fiat-blockchain, programable por API para convertir pagos locales en liquidez stablecoin."
+      content="Kawi runs a hybrid settlement engine: PIX and local fiat rails for access, Solana and USDC for movement, in one programmable, auditable operation."
     />
-    <meta name="author" content="Kawi" />
+    <meta data-rh="true" name="author" content="Kawi" />
     <meta
+      data-rh="true"
       name="keywords"
-      content="BRL a USDC, motor de liquidacion hibrida, liquidacion programable, fiat to stablecoin, API BRL USDC, stablecoin settlement, Pix to USDC, Kawi"
+      content="BRL to USDC, hybrid settlement engine, programmable settlement, fiat to stablecoin, PIX to USDC, stablecoin settlement Brazil, cross-border payments latam, Kawi"
     />
-    <link rel="canonical" href="https://docs.kawiservices.com" />
+    <meta
+      data-rh="true"
+      name="robots"
+      content="index, follow, max-image-preview:large"
+    />
+    <link data-rh="true" rel="canonical" href="https://kawiservices.com.br" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-    <meta property="og:type" content="website" />
+    <meta data-rh="true" property="og:site_name" content="Kawi" />
+    <meta data-rh="true" property="og:locale" content="en_US" />
+    <meta data-rh="true" property="og:type" content="website" />
     <meta
+      data-rh="true"
       property="og:title"
-      content="Kawi | Motor de liquidacion hibrida BRL a USDC"
+      content="Kawi | Hybrid BRL to USDC Settlement Engine for Latin America"
     />
     <meta
+      data-rh="true"
       property="og:description"
-      content="Motor programable para liquidar BRL -> USDC de forma automatica usando infraestructura fiat y blockchain."
+      content="A programmable hybrid settlement engine turning local BRL payments into USDC liquidity through fiat and blockchain infrastructure."
     />
-    <meta property="og:image" content="/logo512.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" property="og:url" content="https://kawiservices.com.br" />
     <meta
+      data-rh="true"
+      property="og:image"
+      content="https://kawiservices.com.br/logo512.png"
+    />
+
+    <meta data-rh="true" name="twitter:card" content="summary_large_image" />
+    <meta data-rh="true" name="twitter:site" content="@KawiServices" />
+    <meta
+      data-rh="true"
       name="twitter:title"
-      content="Kawi | Motor de liquidacion hibrida BRL a USDC"
+      content="Kawi | Hybrid BRL to USDC Settlement Engine for Latin America"
     />
     <meta
+      data-rh="true"
       name="twitter:description"
-      content="Motor programable para liquidar BRL -> USDC de forma automatica usando infraestructura fiat y blockchain."
+      content="A programmable hybrid settlement engine turning local BRL payments into USDC liquidity through fiat and blockchain infrastructure."
     />
-    <meta name="twitter:image" content="/logo512.png" />
+    <meta
+      data-rh="true"
+      name="twitter:image"
+      content="https://kawiservices.com.br/logo512.png"
+    />
 
-    <script type="application/ld+json">
+    <script data-rh="true" type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Kawi BRL to USDC Settlement Engine",
-        "url": "https://docs.kawiservices.com",
-        "serviceType": "Hybrid fiat-blockchain settlement engine",
-        "description": "Kawi provides a programmable hybrid settlement engine for automatically liquidating BRL into USDC through fiat and blockchain infrastructure.",
-        "provider": {
-          "@type": "Organization",
-          "name": "Kawi",
-          "url": "https://docs.kawiservices.com"
-        },
-        "areaServed": ["BR", "Global"]
+        "@type": "Organization",
+        "@id": "https://kawiservices.com.br/#organization",
+        "name": "Kawi",
+        "legalName": "Kawi Services",
+        "url": "https://kawiservices.com.br",
+        "logo": "https://kawiservices.com.br/logo512.png",
+        "description": "Kawi is a hybrid settlement infrastructure connecting banking rails and blockchain to move value across Latin America quickly, securely and programmatically.",
+        "email": "company@kawiservices.com",
+        "areaServed": ["BR", "Latin America"],
+        "sameAs": [
+          "https://x.com/KawiServices",
+          "https://www.facebook.com/kawiservicess/",
+          "https://www.trustpilot.com/review/kawi.life"
+        ]
       }
     </script>
   </head>

@@ -82,6 +82,8 @@ const CTASection = () => {
                 <div className="flex flex-col sm:flex-row items-start gap-4">
                   <a
                     href={ctaHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 h-14 text-base rounded-full font-semibold inline-flex items-center justify-center group shadow-lg shadow-primary/30 transition-all"
                   >
                     {ctaLabel}
@@ -90,6 +92,8 @@ const CTASection = () => {
 
                   <a
                     href={API_SERVICES_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="border border-foreground/20 text-foreground px-8 h-14 text-base rounded-full font-semibold inline-flex items-center justify-center hover:bg-foreground/5 transition-colors"
                   >
                     {t.cta.ctaDocs}

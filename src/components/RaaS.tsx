@@ -225,6 +225,8 @@ export default function RaaS() {
         >
           <a
             href={WEB_APP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-lg shadow-primary/30"
           >
             <ArrowRight className="w-4 h-4" />

@@ -130,6 +130,8 @@ const HeroSection = () => {
           >
             <a
               href={WEB_APP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-primary text-primary-foreground px-8 h-14 text-base rounded-full font-semibold inline-flex items-center justify-center shadow-lg shadow-primary/30 transition-transform hover:-translate-y-1"
             >
               {t.hero.ctaStart}

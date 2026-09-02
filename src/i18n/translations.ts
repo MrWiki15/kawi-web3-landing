@@ -12,6 +12,7 @@ const en = {
     mission: "Mission",
     reviews: "Reviews",
     blog: "Blog",
+    about: "About",
     ctaSend: "Send now",
     ctaDownload: "Download app",
   },
@@ -101,7 +102,6 @@ const en = {
     expanding: "Expanding",
     countries: [
       { country: "Brazil", region: "Live", status: "Live" },
-      { country: "Cuba", region: "Live", status: "Live" },
       { country: "Venezuela", region: "Beta", status: "Testing" },
       { country: "Dominican Republic", region: "Beta", status: "Testing" },
       { country: "Mexico", region: "Beta", status: "Testing" },
@@ -185,13 +185,25 @@ const en = {
       api: "API Service",
       docs: "Documentation",
       presentation: "Presentation",
+      about: "About Us",
+      blog: "Blog",
     },
     communityLinks: {
       blog: "Blog",
       whatsapp1: "WhatsApp #1",
       whatsapp2: "WhatsApp #2",
+      whatsapp3: "WhatsApp #3",
+      whatsapp4: "WhatsApp #4",
       solana: "Solana Foundation",
       accelerated: "Accelerated",
+    },
+    buy: "Buy",
+    buyLinks: {
+      bitcoin: "Buy Bitcoin",
+      solana: "Buy Solana",
+      usdc: "Buy USDC",
+      brl: "Buy BRL",
+      usd: "Buy USD",
     },
     legalLinks: {
       privacy: "Privacy",
@@ -199,7 +211,31 @@ const en = {
       collabs: "Collaborations",
       deleteAccount: "Account deletion",
       deleteData: "Data deletion",
+      cookies: "Cookies policy",
     },
+  },
+  leaveModal: {
+    eyebrow: "External link",
+    title: "You are about to leave Kawi",
+    description:
+      "This link takes you to a site that is not operated by Kawi. Check the exact address before continuing:",
+    destination: "Destination",
+    warning:
+      "Kawi is not responsible for the content, security or privacy practices of external sites.",
+    question: "Are you sure you want to leave?",
+    cancel: "Stay on Kawi",
+    confirm: "Yes, continue",
+    newTab: "The site opens in a new tab.",
+    close: "Close",
+  },
+  cookieBanner: {
+    title: "This site uses cookies",
+    description:
+      "Kawi uses cookies and local storage to remember your language, keep the session secure and understand how the site is used.",
+    accept: "Accept cookies",
+    decline: "Decline",
+    policy: "Read the Cookies Policy",
+    reloading: "Cookies were declined. Reloading the page...",
   },
   langModal: {
     es: {
@@ -225,6 +261,7 @@ const es: typeof en = {
     mission: "Misión",
     reviews: "Reseñas",
     blog: "Blog",
+    about: "Nosotros",
     ctaSend: "Enviar ahora",
     ctaDownload: "Descargar app",
   },
@@ -314,7 +351,6 @@ const es: typeof en = {
     expanding: "Expandiendo",
     countries: [
       { country: "Brasil", region: "Operativo", status: "Live" },
-      { country: "Cuba", region: "Operativo", status: "Live" },
       { country: "Venezuela", region: "Beta", status: "Testing" },
       { country: "República Dominicana", region: "Beta", status: "Testing" },
       { country: "México", region: "Beta", status: "Testing" },
@@ -398,13 +434,25 @@ const es: typeof en = {
       api: "Api Service",
       docs: "Documentación",
       presentation: "Presentación",
+      about: "Nosotros",
+      blog: "Blog",
     },
     communityLinks: {
       blog: "Blog",
       whatsapp1: "Whatsapp #1",
       whatsapp2: "Whatsapp #2",
+      whatsapp3: "Whatsapp #3",
+      whatsapp4: "Whatsapp #4",
       solana: "Solana Fundation",
       accelerated: "Acelerados",
+    },
+    buy: "Comprar",
+    buyLinks: {
+      bitcoin: "Comprar Bitcoin",
+      solana: "Comprar Solana",
+      usdc: "Comprar USDC",
+      brl: "Comprar BRL",
+      usd: "Comprar USD",
     },
     legalLinks: {
       privacy: "Privacidad",
@@ -412,9 +460,33 @@ const es: typeof en = {
       collabs: "Colaboraciones",
       deleteAccount: "Eliminación de cuenta",
       deleteData: "Eliminación de datos",
+      cookies: "Política de cookies",
     },
   },
   langModal: en.langModal,
+  leaveModal: {
+    eyebrow: "Enlace externo",
+    title: "Estás a punto de salir de Kawi",
+    description:
+      "Este enlace te lleva a un sitio que no es operado por Kawi. Revisa la dirección exacta antes de continuar:",
+    destination: "Destino",
+    warning:
+      "Kawi no se hace responsable del contenido, la seguridad ni las prácticas de privacidad de sitios externos.",
+    question: "¿Estás seguro de que deseas salir?",
+    cancel: "Quedarme en Kawi",
+    confirm: "Sí, continuar",
+    newTab: "El sitio se abre en una pestaña nueva.",
+    close: "Cerrar",
+  },
+  cookieBanner: {
+    title: "Este sitio utiliza cookies",
+    description:
+      "Kawi utiliza cookies y almacenamiento local para recordar tu idioma, mantener la sesión segura y entender cómo se usa el sitio.",
+    accept: "Aceptar cookies",
+    decline: "Rechazar",
+    policy: "Leer la Política de Cookies",
+    reloading: "Rechazaste las cookies. Recargando la página...",
+  },
 };
 
 const pt: typeof en = {
@@ -425,6 +497,7 @@ const pt: typeof en = {
     mission: "Missão",
     reviews: "Avaliações",
     blog: "Blog",
+    about: "Sobre",
     ctaSend: "Enviar agora",
     ctaDownload: "Baixar app",
   },
@@ -514,7 +587,6 @@ const pt: typeof en = {
     expanding: "Em expansão",
     countries: [
       { country: "Brasil", region: "Operacional", status: "Live" },
-      { country: "Cuba", region: "Operacional", status: "Live" },
       { country: "Venezuela", region: "Beta", status: "Testing" },
       { country: "República Dominicana", region: "Beta", status: "Testing" },
       { country: "México", region: "Beta", status: "Testing" },
@@ -598,13 +670,25 @@ const pt: typeof en = {
       api: "Serviço de API",
       docs: "Documentação",
       presentation: "Apresentação",
+      about: "Sobre nós",
+      blog: "Blog",
     },
     communityLinks: {
       blog: "Blog",
       whatsapp1: "Whatsapp #1",
       whatsapp2: "Whatsapp #2",
+      whatsapp3: "Whatsapp #3",
+      whatsapp4: "Whatsapp #4",
       solana: "Solana Foundation",
       accelerated: "Acelerados",
+    },
+    buy: "Comprar",
+    buyLinks: {
+      bitcoin: "Comprar Bitcoin",
+      solana: "Comprar Solana",
+      usdc: "Comprar USDC",
+      brl: "Comprar BRL",
+      usd: "Comprar USD",
     },
     legalLinks: {
       privacy: "Privacidade",
@@ -612,9 +696,33 @@ const pt: typeof en = {
       collabs: "Colaborações",
       deleteAccount: "Exclusão de conta",
       deleteData: "Exclusão de dados",
+      cookies: "Política de cookies",
     },
   },
   langModal: en.langModal,
+  leaveModal: {
+    eyebrow: "Link externo",
+    title: "Você está prestes a sair da Kawi",
+    description:
+      "Este link leva a um site que não é operado pela Kawi. Confira o endereço exato antes de continuar:",
+    destination: "Destino",
+    warning:
+      "A Kawi não se responsabiliza pelo conteúdo, pela segurança nem pelas práticas de privacidade de sites externos.",
+    question: "Tem certeza de que deseja sair?",
+    cancel: "Ficar na Kawi",
+    confirm: "Sim, continuar",
+    newTab: "O site abre em uma nova aba.",
+    close: "Fechar",
+  },
+  cookieBanner: {
+    title: "Este site utiliza cookies",
+    description:
+      "A Kawi utiliza cookies e armazenamento local para lembrar seu idioma, manter a sessão segura e entender como o site é usado.",
+    accept: "Aceitar cookies",
+    decline: "Recusar",
+    policy: "Ler a Política de Cookies",
+    reloading: "Cookies recusados. Recarregando a página...",
+  },
 };
 
 export const translations: Record<Lang, typeof en> = { en, es, pt };

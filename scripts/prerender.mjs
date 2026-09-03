@@ -25,20 +25,20 @@ const END = "<!-- seo:end -->";
 
 /** Bundle the TS route table so this Node script can read the same source. */
 async function loadRoutes() {
-  const out = join(root, "node_modules", ".cache", "kawi-routes.mjs");
+  const out = join(root, "node_modules", ".cache", "kawi-routes.js");
   mkdirSync(dirname(out), { recursive: true });
   await build({
     absWorkingDir: root,
-    entryPoints: ["src/lib/routeMeta.ts"],
+    entryPoints: { "kawi-routes": "src/lib/routeMeta.ts", "kawi-body": "src/lib/staticContent.ts" },
     bundle: true,
     format: "esm",
     platform: "node",
     logLevel: "warning",
     alias: { "@": join(root, "src") },
     define: { "import.meta.env": "{}" },
-    outfile: out,
+    outdir: dirname(out),
   });
-  return out;
+  return dirname(out);
 }
 
 const escape = (value) =>
@@ -138,8 +138,38 @@ function sitemapFor(routes) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 }
 
-const bundle = await loadRoutes();
-const { allRoutes } = await import(pathToFileURL(bundle).href);
+
+/**
+ * llms.txt — an emerging convention (llmstxt.org) that gives AI crawlers a
+ * clean, plain-text map of the site: what Kawi is, plus every page with a
+ * one-line description. It costs nothing and is read by several AI indexers.
+ */
+function llmsTxtFor(routes) {
+  const line = (r) => `- [${r.title.replace(/ \| Kawi.*$/, "")}](${r.path === "/" ? SITE_URL : SITE_URL + r.path}): ${r.description}`;
+  const isPost = (r) => r.path.startsWith("/blog/");
+  const pages = routes.filter((r) => !isPost(r));
+  const posts = routes.filter(isPost);
+  return [
+    "# Kawi",
+    "",
+    "> Kawi is a regulated Brazilian company that runs a hybrid settlement engine for cross-border payments: local fiat rails such as PIX to enter, Solana and USDC to settle, delivered in the destination currency as one auditable operation.",
+    "",
+    "## Pages",
+    ...pages.map(line),
+    "",
+    "## Blog",
+    ...posts.map(line),
+    "",
+  ].join("\n");
+}
+
+const cacheDir = await loadRoutes();
+const { allRoutes } = await import(
+  pathToFileURL(join(cacheDir, "kawi-routes.js")).href
+);
+const { staticBodyForPath } = await import(
+  pathToFileURL(join(cacheDir, "kawi-body.js")).href
+);
 const routes = allRoutes();
 
 if (routes.length === 0) {
@@ -156,8 +186,15 @@ if (!template.includes(START) || !template.includes(END)) {
 const before = template.slice(0, template.indexOf(START) + START.length);
 const after = template.slice(template.indexOf(END));
 
+const ROOT = '<div id="root"></div>';
+
 for (const route of routes) {
-  const html = `${before}\n${headFor(route)}\n${after}`;
+  let html = `${before}\n${headFor(route)}\n${after}`;
+
+  // Inject real body text for JS-less crawlers (AI answer engines especially).
+  const body = staticBodyForPath(route.path);
+  if (body) html = html.replace(ROOT, `<div id="root">${body}</div>`);
+
   const target =
     route.path === "/" ? join(dist, "index.html") : join(dist, route.path, "index.html");
   mkdirSync(dirname(target), { recursive: true });
@@ -168,5 +205,10 @@ const sitemap = sitemapFor(routes);
 writeFileSync(join(dist, "sitemap.xml"), sitemap, "utf8");
 writeFileSync(join(root, "public", "sitemap.xml"), sitemap, "utf8");
 
-rmSync(bundle, { force: true });
-console.log(`prerender: wrote ${routes.length} html files and sitemap.xml`);
+const llms = llmsTxtFor(routes);
+writeFileSync(join(dist, "llms.txt"), llms, "utf8");
+writeFileSync(join(root, "public", "llms.txt"), llms, "utf8");
+
+rmSync(join(cacheDir, "kawi-routes.js"), { force: true });
+rmSync(join(cacheDir, "kawi-body.js"), { force: true });
+console.log(`prerender: wrote ${routes.length} html files, sitemap.xml and llms.txt`);

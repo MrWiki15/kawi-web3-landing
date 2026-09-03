@@ -13,8 +13,8 @@ export const economicsPosts: BlogPost[] = [
     cluster: "Economics",
     pillar: true,
     date: "2026-08-26",
-    updated: "2026-08-26",
-    readingMinutes: 9,
+    updated: "2026-09-02",
+    readingMinutes: 11,
     author: "Kawi Research",
     authorRole: "Treasury and pricing",
     tags: ["economics", "cross-border", "cost structure"],
@@ -81,6 +81,32 @@ export const economicsPosts: BlogPost[] = [
           "cost_per_operation  =  network_cost  +  conversion_cost  +  carrying_cost(float)  +  p_exception × cost_per_exception",
         caption:
           "Only the first two terms are visible in a fee schedule. The last two decide whether a corridor is profitable, and both are consequences of design rather than pricing.",
+      },
+      { type: "heading", text: "The model this cluster builds" },
+      {
+        type: "paragraph",
+        text: "The four families above are the map. The rest of this cluster builds one model on top of it, in order, each article taking the previous one's output as its input.",
+      },
+      {
+        type: "formula",
+        expression:
+          "μ, σ  →  service level z  →  buffer  →  carrying cost  →  rebalancing band  →  capital turns",
+        caption:
+          "Expected flow and its volatility justify a service level; the service level sets the buffer; the buffer carries a cost; the cost sets the width of the no-trade band; what survives the chain is capital efficiency.",
+      },
+      {
+        type: "list",
+        items: [
+          "Expected flow, volatility and the service level they justify: [prefunding inventory math](/blog/prefunding-inventory-math).",
+          "The capital that service level implies, and where it is held: [prefunding strategy](/blog/prefunding-strategy).",
+          "What holding it costs, per operation and per year: [float and the cost of capital](/blog/float-and-cost-of-capital).",
+          "When to move it, and how wide the band should be before you do: [corridor rebalancing](/blog/corridor-rebalancing).",
+          "What the chain implies for one operation and for the price you quote: [unit economics of a settlement](/blog/unit-economics-of-a-settlement) and [pricing a corridor](/blog/pricing-a-corridor).",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "The notation is shared on purpose. μ and σ are the mean and standard deviation of daily corridor flow, z is the service-level factor, L is replenishment lead time, and carrying cost is always expressed per operation so it can be held against a fee rather than admired in isolation.",
       },
       { type: "heading", text: "What actually improves" },
       {
@@ -353,7 +379,8 @@ export const economicsPosts: BlogPost[] = [
   },
   {
     slug: "prefunding-strategy",
-    title: "Prefunding strategy: how Kawi keeps settlement instant without freezing capital",
+    title:
+      "Prefunding strategy: how Kawi maintains instant settlement with less trapped capital",
     seoTitle: "Prefunding Strategy for Instant Cross-Border Settlement",
     excerpt:
       "Instant delivery requires money already sitting where it is needed. The strategy is deciding how much, in which asset, in which corridor, and how fast it can move.",
@@ -362,8 +389,8 @@ export const economicsPosts: BlogPost[] = [
     category: "Economics",
     cluster: "Economics",
     date: "2026-08-27",
-    updated: "2026-08-27",
-    readingMinutes: 9,
+    updated: "2026-09-02",
+    readingMinutes: 10,
     author: "Kawi Research",
     authorRole: "Treasury and pricing",
     tags: ["prefunding", "treasury", "liquidity", "capital"],
@@ -392,7 +419,11 @@ export const economicsPosts: BlogPost[] = [
       { type: "heading", text: "The pooled model" },
       {
         type: "paragraph",
-        text: "Holding the buffer as stablecoin changes the shape of the problem. One pool serves many corridors, because the asset can be redeployed in seconds rather than days. Capital stops being stranded by geography and becomes stranded only by time.",
+        text: "A stablecoin pool does not eliminate liquidity requirements. It changes where liquidity has to be held and how quickly it can be redeployed. One pool can serve many corridors because the asset moves in seconds rather than days, so capital stops being stranded by geography and becomes stranded only by time.",
+      },
+      {
+        type: "paragraph",
+        text: "That is worth stating plainly, because it is the load-bearing idea of this cluster: Kawi separates liquidity from geography. The capital requirement does not disappear. It stops being multiplied by the number of places you need to be able to pay.",
       },
       {
         type: "list",
@@ -411,7 +442,7 @@ export const economicsPosts: BlogPost[] = [
         type: "formula",
         expression: "σ_pooled  =  √( σ₁² + σ₂² + … + σₙ² )   ≪   σ₁ + σ₂ + … + σₙ",
         caption:
-          "For n corridors of similar size and low correlation, pooled buffer requirements scale with √n rather than n. Ten corridors need roughly a third of the buffer that ten isolated pools would.",
+          "For n corridors of similar size and low correlation, the pooled buffer scales with √n rather than n. Ten low-correlation corridors can require roughly one third of the aggregate buffer that ten isolated pools would require, before accounting for corridor-specific minimums, partner requirements, settlement windows and tail correlation.",
       },
       { type: "heading", text: "Sizing is a service level, not a guess" },
       {
@@ -426,6 +457,11 @@ export const economicsPosts: BlogPost[] = [
       {
         type: "paragraph",
         text: "Buffers are replenished on thresholds rather than on a calendar. Crossing a reorder point starts a transfer sized to bring the corridor back to target, accounting for what is already in flight. Scheduled top-ups are always either late or wasteful, because flow is not a schedule.",
+      },
+      { type: "heading", text: "Where this sits in the model" },
+      {
+        type: "paragraph",
+        text: "Prefunding is one link in a chain this cluster builds in order: expected flow and its volatility justify a service level, the service level sets a buffer, the buffer carries a cost, that cost sets the rebalancing band, and what survives is capital efficiency. The chain and its shared notation are set out in [the economics of cross-border settlement](/blog/economics-of-cross-border-settlement). This article is the link that turns a service level into an amount of capital.",
       },
       { type: "heading", text: "The three failure modes" },
       {

@@ -3,10 +3,10 @@ import { ArrowRight, Building2, Globe2, ShieldCheck, Zap } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
-import Seo, { breadcrumbJsonLd, organizationJsonLd, websiteJsonLd } from "@/components/Seo";
+import Seo from "@/components/Seo";
+import { aboutMeta } from "@/lib/routeMeta";
 import { getPillarForCluster } from "@/data/blogPosts";
 import {
-  ABOUT_URL,
   BLOG_URL,
   COLLABORATIONS_MAILTO,
   COMPANY_EMAIL,
@@ -16,18 +16,8 @@ import {
   WEB_APP_URL,
 } from "@/lib/links";
 
-const seoTitle = "About Kawi | Hybrid Settlement Infrastructure";
-const seoDescription =
-  "Who Kawi is: a regulated Brazilian company building hybrid settlement infrastructure that moves value across Latin America in minutes, not days.";
-const seoKeywords = [
-  "about Kawi",
-  "hybrid settlement company",
-  "cross-border settlement Brazil",
-  "stablecoin settlement infrastructure latam",
-];
-
 const stats = [
-  { value: "2024", label: "Year Kawi started building" },
+  { value: "Dec 2025", label: "Founded" },
   { value: "5", label: "Corridors live or in testing" },
   { value: "1 min", label: "Average settlement time" },
   { value: "24/7", label: "Platform availability" },
@@ -58,24 +48,24 @@ const pillars = [
 
 const timeline = [
   {
-    year: "2024",
-    title: "The engine takes shape",
-    body: "Kawi starts as an internal settlement engine built to solve one concrete problem: turning local BRL payments into usable global liquidity without waiting days for intermediaries.",
+    year: "Dec 2025",
+    title: "Kawi is founded",
+    body: "Kawi starts around one concrete problem: turning local BRL payments into usable global liquidity without waiting days for intermediaries. The first version of the settlement engine is built to answer it.",
   },
   {
-    year: "2025",
-    title: "From engine to platform",
-    body: "The widget and the public API are released, so other products can start, monitor and reconcile hybrid settlements without rebuilding the rails themselves.",
+    year: "Jan 2026",
+    title: "Beta with real operations",
+    body: "The product goes into beta so the engine can be tested against real money, real timings and real failure cases, instead of assumptions. Every leg, quote and payout is measured before opening up further.",
   },
   {
-    year: "2025",
-    title: "Regulated operations in Brazil",
-    body: "Kawi consolidates its operation as a regulated company in Brazil, with compliance, monitoring and reporting built into the engine rather than added around it.",
+    year: "Mar 2026",
+    title: "Regulated in Brazil",
+    body: "Kawi becomes a regulated company in Brazil, with compliance, monitoring and reporting built into the engine rather than added around it. Brazil is the corridor that carries live volume from here on.",
   },
   {
-    year: "2026",
-    title: "Corridor expansion",
-    body: "Venezuela, the Dominican Republic, Mexico and Colombia enter testing while Brazil runs live volume, and work begins on strengthening our regulatory framework for digital assets.",
+    year: "Now",
+    title: "Expanding across Latam",
+    body: "The same programmable engine is being taken to more Latin American countries, one corridor at a time, as each clears its regulatory and operational bar.",
   },
 ];
 
@@ -106,25 +96,11 @@ const AboutPage = () => {
   return (
   <div className="min-h-screen bg-background">
     <Seo
-      title={seoTitle}
-      description={seoDescription}
-      path={ABOUT_URL}
-      keywords={seoKeywords}
-      jsonLd={[
-        organizationJsonLd,
-        websiteJsonLd,
-        {
-          "@context": "https://schema.org",
-          "@type": "AboutPage",
-          name: seoTitle,
-          description: seoDescription,
-          mainEntity: { "@id": "https://kawiservices.com.br/#organization" },
-        },
-        breadcrumbJsonLd([
-          { name: "Home", path: "/" },
-          { name: "About Us", path: ABOUT_URL },
-        ]),
-      ]}
+      title={aboutMeta.title}
+      description={aboutMeta.description}
+      path={aboutMeta.path}
+      keywords={aboutMeta.keywords}
+      jsonLd={aboutMeta.jsonLd}
     />
     <Navbar />
 

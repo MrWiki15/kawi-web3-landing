@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Index from "@/pages/Index";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import LanguageDetectModal from "@/components/LanguageDetectModal";
@@ -13,6 +13,7 @@ const AboutPage = lazy(() => import("@/pages/AboutPage"));
 const BlogPage = lazy(() => import("@/pages/BlogPage"));
 const BlogPostPage = lazy(() => import("@/pages/BlogPostPage"));
 const LegalPage = lazy(() => import("@/pages/LegalPage"));
+const NotFoundPage = lazy(() => import("@/pages/NotFoundPage"));
 
 const KAWI_APP_URL = "https://kawiservices.com.br/app";
 
@@ -51,7 +52,7 @@ const App = () => (
             <Route path="/data-deletion" element={<LegalPage kind="data-deletion" />} />
             <Route path="/app" element={<ExternalAppRedirect />} />
             <Route path="/app/*" element={<ExternalAppRedirect />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
 

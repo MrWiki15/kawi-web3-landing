@@ -5,7 +5,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import RichText from "@/components/RichText";
 import ScrollReveal from "@/components/ScrollReveal";
-import Seo, { breadcrumbJsonLd, organizationJsonLd } from "@/components/Seo";
+import Seo from "@/components/Seo";
+import { postMeta } from "@/lib/routeMeta";
 import { useLanguage } from "@/contexts/LanguageContext";
 import {
   formatPostDate,
@@ -17,7 +18,7 @@ import {
   sortedPosts,
   type BlogBlock,
 } from "@/data/blogPosts";
-import { absoluteUrl, BLOG_URL } from "@/lib/links";
+import { BLOG_URL } from "@/lib/links";
 
 const localeMap: Record<string, string> = {
   en: "en-US",
@@ -129,45 +130,7 @@ const BlogPostPage = () => {
   const previous = index > 0 ? sortedPosts[index - 1] : null;
   const next = index < sortedPosts.length - 1 ? sortedPosts[index + 1] : null;
 
-  const jsonLd = [
-    organizationJsonLd,
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "@id": `${absoluteUrl(path)}#article`,
-      headline: post.seoTitle ?? post.title,
-      alternativeHeadline: post.title,
-      description: post.metaDescription ?? post.excerpt,
-      url: absoluteUrl(path),
-      mainEntityOfPage: { "@type": "WebPage", "@id": absoluteUrl(path) },
-      datePublished: post.date,
-      dateModified: post.updated ?? post.date,
-      keywords: post.keywords.join(", "),
-      articleSection: post.category,
-      wordCount: post.content.reduce(
-        (total, block) =>
-          total +
-          (block.type === "list"
-            ? block.items.join(" ").split(/\s+/).length
-            : block.type === "code"
-              ? 0
-              : block.type === "formula"
-                ? (block.caption ?? "").split(/\s+/).length
-                : block.text.split(/\s+/).length),
-        0,
-      ),
-      timeRequired: `PT${post.readingMinutes}M`,
-      inLanguage: "en",
-      author: { "@type": "Organization", name: post.author, url: absoluteUrl("/") },
-      publisher: { "@id": `${absoluteUrl("/")}/#organization` },
-      image: `${absoluteUrl("/")}/logo512.png`,
-    },
-    breadcrumbJsonLd([
-      { name: "Home", path: "/" },
-      { name: "Blog", path: BLOG_URL },
-      { name: post.title, path },
-    ]),
-  ];
+  const meta = postMeta(post.slug);
 
   const copyLink = async () => {
     try {
@@ -181,8 +144,8 @@ const BlogPostPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title={`${post.seoTitle ?? post.title} | Kawi`}
-        description={post.metaDescription ?? post.excerpt}
+        title={meta?.title ?? `${post.title} | Kawi`}
+        description={meta?.description ?? post.excerpt}
         path={path}
         keywords={post.keywords}
         type="article"
@@ -190,7 +153,7 @@ const BlogPostPage = () => {
         modifiedTime={post.updated ?? post.date}
         section={post.category}
         tags={post.tags}
-        jsonLd={jsonLd}
+        jsonLd={meta?.jsonLd ?? []}
       />
       <Navbar />
 

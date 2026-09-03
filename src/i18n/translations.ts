@@ -18,7 +18,7 @@ const en = {
   },
   hero: {
     eyebrow: "Fiat to enter. Blockchain to settle.",
-    titleLine1: "Settlement",
+    titleLine1: "Kawi Settlement",
     titleLine2: "Infrastructure-",
     rotating: ["Hybrid", "Fiat", "Crypto"],
     description:
@@ -267,7 +267,7 @@ const es: typeof en = {
   },
   hero: {
     eyebrow: "Fiat para entrar. Blockchain para liquidar.",
-    titleLine1: "Infraestructura de",
+    titleLine1: "Kawi, Infraestructura de",
     titleLine2: "Liquidación-",
     rotating: ["Híbrida", "Fiat", "Cripto"],
     description:
@@ -503,7 +503,7 @@ const pt: typeof en = {
   },
   hero: {
     eyebrow: "Fiat para entrar. Blockchain para liquidar.",
-    titleLine1: "Infraestrutura de",
+    titleLine1: "Kawi, Infraestrutura de",
     titleLine2: "Liquidação-",
     rotating: ["Híbrida", "Fiat", "Cripto"],
     description:

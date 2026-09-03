@@ -15,6 +15,7 @@
       instead of appending a duplicate set. They are the fallback that non-JS
       crawlers see, and they describe the landing page.
     -->
+    <!-- seo:start -->
     <title data-rh="true">
       Kawi | Hybrid BRL to USDC Settlement Engine for Latin America
     </title>
@@ -94,10 +95,30 @@
         ]
       }
     </script>
+    <!-- seo:end -->
+    <style>
+      /* The static site nav is a crawlable structural fallback, not UI. */
+      .static-sitenav { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    </style>
   </head>
 
   <body>
     <div id="root"></div>
+    <!--
+      Static site navigation. It lives outside #root, so React never removes it,
+      and it guarantees the primary sections are present as crawlable links in
+      the raw HTML of every prerendered page (the visible Navbar/Footer render
+      the same links via JS). Clear, persistent site structure is what Google
+      draws sitelinks from for a brand query such as "Kawi".
+    -->
+    <nav aria-label="Kawi site" class="static-sitenav">
+      <a href="/">Kawi</a>
+      <a href="/about">About Kawi</a>
+      <a href="/blog">Kawi Blog</a>
+      <a href="/regulation">Regulation</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/cookies">Cookies Policy</a>
+    </nav>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

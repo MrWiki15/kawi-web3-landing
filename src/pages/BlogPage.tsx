@@ -4,7 +4,8 @@ import { ArrowRight, Clock, Layers } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
-import Seo, { breadcrumbJsonLd, organizationJsonLd } from "@/components/Seo";
+import Seo from "@/components/Seo";
+import { blogMeta } from "@/lib/routeMeta";
 import { useLanguage } from "@/contexts/LanguageContext";
 import {
   blogCategories,
@@ -15,20 +16,7 @@ import {
   sortedPosts,
   type BlogPost,
 } from "@/data/blogPosts";
-import { absoluteUrl, BLOG_URL, TWITTER_URL } from "@/lib/links";
-
-const seoTitle = "Blog | Hybrid Settlement, Solana and Payment Economics | Kawi";
-const seoDescription =
-  "Notes from the Kawi team on hybrid settlement infrastructure, Solana as a settlement layer, the economics of prefunding, and agentic payments.";
-
-const seoKeywords = [
-  "hybrid settlement blog",
-  "cross-border payment infrastructure",
-  "Solana settlement",
-  "prefunding strategy",
-  "agentic payments",
-  "stablecoin remittances",
-];
+import { BLOG_URL, TWITTER_URL } from "@/lib/links";
 
 const localeMap: Record<string, string> = {
   en: "en-US",
@@ -112,40 +100,14 @@ const BlogPage = () => {
     [activeCategory, featured.slug],
   );
 
-  const jsonLd = [
-    organizationJsonLd,
-    {
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      "@id": `${absoluteUrl(BLOG_URL)}#blog`,
-      name: "Kawi Blog",
-      url: absoluteUrl(BLOG_URL),
-      description: seoDescription,
-      publisher: { "@id": `${absoluteUrl("/")}/#organization` },
-      blogPost: sortedPosts.map((post) => ({
-        "@type": "BlogPosting",
-        headline: post.title,
-        description: post.excerpt,
-        datePublished: post.date,
-        dateModified: post.updated ?? post.date,
-        url: absoluteUrl(`${BLOG_URL}/${post.slug}`),
-        author: { "@type": "Organization", name: post.author },
-      })),
-    },
-    breadcrumbJsonLd([
-      { name: "Home", path: "/" },
-      { name: "Blog", path: BLOG_URL },
-    ]),
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title={seoTitle}
-        description={seoDescription}
-        path={BLOG_URL}
-        keywords={seoKeywords}
-        jsonLd={jsonLd}
+        title={blogMeta.title}
+        description={blogMeta.description}
+        path={blogMeta.path}
+        keywords={blogMeta.keywords}
+        jsonLd={blogMeta.jsonLd}
       />
       <Navbar />
 

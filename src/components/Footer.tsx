@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
-import kawiLogo from "@/assets/kawi-logo.png";
+import kawiLockup from "@/assets/kawi-lockup.png";
 import { AnimatedWave } from "@/components/ui/animated-wave";
 import { useT } from "@/contexts/LanguageContext";
 import { isExternalUrl, parseUrl } from "@/lib/externalLinks";
@@ -139,10 +139,13 @@ const Footer = () => {
               <a
                 href={WEB_APP_URL}
                 {...anchorProps(WEB_APP_URL)}
-                className="inline-flex items-center gap-3 mb-6"
+                className="inline-flex items-center mb-6"
               >
-                <img src={kawiLogo} alt="Kawi BRL to USDC settlement engine" className="h-10 w-10 object-contain" />
-                <span className="text-2xl font-display font-bold">Kawi</span>
+                <img
+                  src={kawiLockup}
+                  alt="Kawi — Asesoría y Gestión Financiera"
+                  className="h-16 w-auto object-contain"
+                />
               </a>
               <p className="text-primary-foreground/70 leading-relaxed mb-8 max-w-xs">{t.footer.description}</p>
               <div className="flex gap-6">

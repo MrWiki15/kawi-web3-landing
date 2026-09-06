@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import kawiLogo from "@/assets/kawi-logo.png";
+import kawiLogo from "@/assets/kawi-mark-gold.png";
 import { useT } from "@/contexts/LanguageContext";
 import { ABOUT_URL, BLOG_URL, WEB_APP_URL } from "@/lib/links";
 
@@ -28,6 +28,22 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // While the full-screen menu is open, lock the page behind it and let Escape
+  // close it, so there is always a way out besides the on-screen close button.
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsMobileMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isMobileMenuOpen]);
 
   const ctaHref = WEB_APP_URL;
   const ctaLabel = t.nav.ctaSend;
@@ -55,7 +71,7 @@ const Navbar = () => {
           <a href="/" className="flex items-center gap-2 group">
             <img
               src={kawiLogo}
-              alt="Kawi BRL to USDC settlement engine"
+              alt="Kawi hybrid settlement engine"
               className={`object-contain transition-all duration-500 ${
                 isScrolled ? "h-7 w-7" : "h-8 w-8 md:h-9 md:w-9"
               }`}
@@ -114,22 +130,46 @@ const Navbar = () => {
 
       {/* Mobile Menu - Full Screen Overlay */}
       <div
-        className={`md:hidden fixed inset-0 bg-card/95 backdrop-blur-xl z-40 transition-all duration-500 ${
+        className={`md:hidden fixed inset-0 bg-card/95 backdrop-blur-xl z-40 overflow-y-auto overscroll-contain transition-all duration-500 ${
           isMobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
         style={{ top: 0 }}
       >
-        <div className="flex flex-col h-full px-8 pt-28 pb-8">
+        <div className="flex flex-col min-h-full px-8 pt-6 pb-8">
+          {/* Top bar: brand + an always-visible close button. The header's own
+              toggle sits behind this overlay, so the menu needs its own way out. */}
+          <div className="flex items-center justify-between h-14">
+            <a
+              href="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex items-center gap-2"
+            >
+              <img
+                src={kawiLogo}
+                alt="Kawi hybrid settlement engine"
+                className="h-8 w-8 object-contain"
+              />
+              <span className="font-bold font-display text-primary text-lg">Kawi</span>
+            </a>
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="p-2 -mr-2 text-foreground"
+              aria-label="Close menu"
+            >
+              <X className="w-7 h-7" />
+            </button>
+          </div>
+
           {/* Navigation Links */}
-          <div className="flex-1 flex flex-col justify-center gap-8">
+          <div className="flex-1 flex flex-col justify-center gap-6 py-8">
             {navLinks.map((link, i) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`text-5xl font-display text-foreground hover:text-muted-foreground transition-all duration-500 ${
+                className={`text-4xl font-display text-foreground hover:text-muted-foreground transition-all duration-500 ${
                   isMobileMenuOpen
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"

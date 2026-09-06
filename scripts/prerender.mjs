@@ -19,7 +19,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, "..");
 const dist = join(root, "dist");
 
-const SITE_URL = "https://kawiservices.com.br";
+const SITE_URL = "https://kawiservices.com";
 const START = "<!-- seo:start -->";
 const END = "<!-- seo:end -->";
 
@@ -29,7 +29,10 @@ async function loadRoutes() {
   mkdirSync(dirname(out), { recursive: true });
   await build({
     absWorkingDir: root,
-    entryPoints: { "kawi-routes": "src/lib/routeMeta.ts", "kawi-body": "src/lib/staticContent.ts" },
+    entryPoints: {
+      "kawi-routes": "src/lib/routeMeta.ts",
+      "kawi-body": "src/lib/staticContent.ts",
+    },
     bundle: true,
     format: "esm",
     platform: "node",
@@ -97,7 +100,9 @@ function headFor(route) {
       );
     }
     for (const tag of route.tags ?? []) {
-      lines.push(`    <meta ${rh} property="article:tag" content="${escape(tag)}" />`);
+      lines.push(
+        `    <meta ${rh} property="article:tag" content="${escape(tag)}" />`,
+      );
     }
   }
 
@@ -138,14 +143,14 @@ function sitemapFor(routes) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 }
 
-
 /**
  * llms.txt — an emerging convention (llmstxt.org) that gives AI crawlers a
  * clean, plain-text map of the site: what Kawi is, plus every page with a
  * one-line description. It costs nothing and is read by several AI indexers.
  */
 function llmsTxtFor(routes) {
-  const line = (r) => `- [${r.title.replace(/ \| Kawi.*$/, "")}](${r.path === "/" ? SITE_URL : SITE_URL + r.path}): ${r.description}`;
+  const line = (r) =>
+    `- [${r.title.replace(/ \| Kawi.*$/, "")}](${r.path === "/" ? SITE_URL : SITE_URL + r.path}): ${r.description}`;
   const isPost = (r) => r.path.startsWith("/blog/");
   const pages = routes.filter((r) => !isPost(r));
   const posts = routes.filter(isPost);
@@ -196,7 +201,9 @@ for (const route of routes) {
   if (body) html = html.replace(ROOT, `<div id="root">${body}</div>`);
 
   const target =
-    route.path === "/" ? join(dist, "index.html") : join(dist, route.path, "index.html");
+    route.path === "/"
+      ? join(dist, "index.html")
+      : join(dist, route.path, "index.html");
   mkdirSync(dirname(target), { recursive: true });
   writeFileSync(target, html, "utf8");
 }
@@ -211,4 +218,6 @@ writeFileSync(join(root, "public", "llms.txt"), llms, "utf8");
 
 rmSync(join(cacheDir, "kawi-routes.js"), { force: true });
 rmSync(join(cacheDir, "kawi-body.js"), { force: true });
-console.log(`prerender: wrote ${routes.length} html files, sitemap.xml and llms.txt`);
+console.log(
+  `prerender: wrote ${routes.length} html files, sitemap.xml and llms.txt`,
+);

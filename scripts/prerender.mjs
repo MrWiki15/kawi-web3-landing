@@ -72,7 +72,9 @@ function headFor(route) {
   }
 
   lines.push(
-    `    <meta ${rh} name="robots" content="index, follow, max-image-preview:large" />`,
+    route.noIndex
+      ? `    <meta ${rh} name="robots" content="noindex, follow" />`
+      : `    <meta ${rh} name="robots" content="index, follow, max-image-preview:large" />`,
     `    <link ${rh} rel="canonical" href="${escape(canonical)}" />`,
     `    <meta ${rh} property="og:site_name" content="Kawi" />`,
     `    <meta ${rh} property="og:locale" content="en_US" />`,
@@ -169,7 +171,7 @@ function llmsTxtFor(routes) {
 }
 
 const cacheDir = await loadRoutes();
-const { allRoutes } = await import(
+const { allRoutes, notFoundMeta } = await import(
   pathToFileURL(join(cacheDir, "kawi-routes.js")).href
 );
 const { staticBodyForPath } = await import(
@@ -206,6 +208,14 @@ for (const route of routes) {
       : join(dist, route.path, "index.html");
   mkdirSync(dirname(target), { recursive: true });
   writeFileSync(target, html, "utf8");
+}
+
+// Branded 404 that Vercel serves for any unmatched route, with a 404 status.
+{
+  const notFoundBody = staticBodyForPath(notFoundMeta.path);
+  let html = `${before}\n${headFor(notFoundMeta)}\n${after}`;
+  if (notFoundBody) html = html.replace(ROOT, `<div id="root">${notFoundBody}</div>`);
+  writeFileSync(join(dist, "404.html"), html, "utf8");
 }
 
 const sitemap = sitemapFor(routes);

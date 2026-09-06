@@ -34,6 +34,8 @@ export interface RouteMeta {
   changefreq: string;
   priority: string;
   lastmod?: string;
+  /** Keeps the page out of the index (used by the 404). */
+  noIndex?: boolean;
 }
 
 const crumb = (...items: Array<{ name: string; path: string }>) =>
@@ -234,6 +236,23 @@ const LEGAL_KINDS: LegalPageKind[] = [
   "account-deletion",
   "data-deletion",
 ];
+
+/**
+ * The 404 page. Not part of allRoutes (kept out of the sitemap), but prerendered
+ * to dist/404.html so Vercel serves a branded, noindexed not-found page with a
+ * real 404 status instead of its own default error page.
+ */
+export const notFoundMeta: RouteMeta = {
+  path: "/404",
+  title: "Page not found | Kawi",
+  description:
+    "This Kawi page does not exist. Head back to the hybrid settlement engine, the blog or the company page.",
+  keywords: [],
+  jsonLd: [organizationJsonLd, websiteJsonLd],
+  changefreq: "yearly",
+  priority: "0.0",
+  noIndex: true,
+};
 
 /** Every indexable route, in sitemap order. */
 export const allRoutes = (): RouteMeta[] => [

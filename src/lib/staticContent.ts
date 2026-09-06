@@ -134,9 +134,21 @@ const aboutBody = (): string =>
     "</ul>",
   ]);
 
+const notFoundBody = (): string =>
+  article([
+    "<h1>This page is not part of Kawi</h1>",
+    "<p>The address you followed does not match anything on the site. It may have been moved, or the link may have been mistyped.</p>",
+    "<ul>",
+    '<li><a href="/">Back to the homepage</a></li>',
+    `<li><a href="${BLOG_URL}">Read the Kawi blog</a></li>`,
+    '<li><a href="/about">About Kawi</a></li>',
+    "</ul>",
+  ]);
+
 /** HTML injected into #root for a given route path, or null when there is none. */
 export const staticBodyForPath = (path: string): string | null => {
   if (path === "/") return homeBody();
+  if (path === "/404") return notFoundBody();
   if (path === "/about") return aboutBody();
   if (path === BLOG_URL) return blogIndexBody();
   if (path.startsWith(`${BLOG_URL}/`)) return postBody(path.slice(BLOG_URL.length + 1));

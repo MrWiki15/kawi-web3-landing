@@ -33,6 +33,8 @@ const clusterBlurbs: Record<string, string> = {
   Agentic:
     "The layer that lets software operate settlement safely, starting with our own treasury.",
   Platform: "Integrating Kawi, and what a platform gains from doing it.",
+  Expansion:
+    "How Kawi brings Web3 and open financial tools to Latin America, starting with Cuba.",
 };
 
 const ALL = "All";

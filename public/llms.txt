@@ -13,6 +13,7 @@
 - [Data Deletion Requests](https://kawiservices.com/data-deletion): Users can request deletion of personal data that Kawi no longer needs to provide, secure or legally maintain the service.
 
 ## Blog
+- [Kawi Brings Web3 to Cuba on Solana](https://kawiservices.com/blog/kawi-web3-cuba): Kawi, an independent firm regulated in Brazil, is bringing Web3 and open decentralized financial tools to Cuba, focused on Solana and powered by p2p.me on Base.
 - [Hybrid Settlement Infrastructure: Fiat and Blockchain](https://kawiservices.com/blog/hybrid-settlement-infrastructure): A guide to hybrid settlement infrastructure: how fiat entry rails, stablecoin conversion and blockchain settlement become one auditable operation.
 - [Prefunding Strategy for Instant Cross-Border Settlement](https://kawiservices.com/blog/prefunding-strategy): Kawi prefunding strategy for instant settlement: pooled stablecoin liquidity, corridor buffers, replenishment triggers and stress reserves.
 - [The Economics of Cross-Border Settlement](https://kawiservices.com/blog/economics-of-cross-border-settlement): A structural breakdown of cross-border payment costs: intermediary hops, trapped capital, FX spread and overhead, and which of them hybrid settlement removes.

@@ -12,7 +12,6 @@ export const infrastructurePosts: BlogPost[] = [
     category: "Infrastructure",
     cluster: "Infrastructure",
     pillar: true,
-    featured: true,
     date: "2026-08-28",
     updated: "2026-08-28",
     readingMinutes: 9,

@@ -1,5 +1,6 @@
 import { agenticPosts } from "./posts/agentic";
 import { economicsPosts } from "./posts/economics";
+import { expansionPosts } from "./posts/expansion";
 import { infrastructurePosts } from "./posts/infrastructure";
 import { platformPosts } from "./posts/platform";
 import { solanaPosts } from "./posts/solana";
@@ -8,6 +9,7 @@ import type { BlogBlock, BlogPost } from "./posts/types";
 export type { BlogBlock, BlogPost };
 
 export const blogPosts: BlogPost[] = [
+  ...expansionPosts,
   ...infrastructurePosts,
   ...solanaPosts,
   ...economicsPosts,

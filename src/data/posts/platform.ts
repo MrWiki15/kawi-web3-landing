@@ -405,6 +405,7 @@ export const platformPosts: BlogPost[] = [
       "cross-border transfer cost",
     ],
     related: [
+      "kawi-web3-cuba",
       "economics-of-cross-border-settlement",
       "fiat-rails-vs-blockchain-rails",
       "usdc-liquidity-on-solana",

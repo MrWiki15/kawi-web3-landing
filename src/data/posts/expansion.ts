@@ -75,6 +75,10 @@ export const expansionPosts: BlogPost[] = [
       },
       {
         type: "paragraph",
+        text: "We want to be equally clear about what this is not. Kawi has no affiliation, ownership tie or corporate relationship with p2p.me. We are not a p2p.me project, we are not associated with p2p.me, and we do not speak for it. We have had constructive conversations with its core team about improving the infrastructure, and we expect to keep having them, but that is collaboration between two fully independent companies, nothing more. Kawi builds on p2p.me the same way anyone can build on open-source software: by using it, not by belonging to it.",
+      },
+      {
+        type: "paragraph",
         text: "Building on an open-source protocol is a deliberate choice. It means the access layer is inspectable, that no single company owns the door, and that what we build on top can be audited and reused. For a market where trust has to be earned, open source is not a nice-to-have, it is the starting condition.",
       },
       { type: "heading", text: "Concentrating the ecosystem on Solana" },

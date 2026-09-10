@@ -35,6 +35,8 @@ const clusterBlurbs: Record<string, string> = {
   Platform: "Integrating Kawi, and what a platform gains from doing it.",
   Expansion:
     "How Kawi brings Web3 and open financial tools to Latin America, starting with Cuba.",
+  Regulation:
+    "The rules a settlement engine lives by: Brazil's VASP framework, the Travel Rule and stablecoin law.",
 };
 
 const ALL = "All";

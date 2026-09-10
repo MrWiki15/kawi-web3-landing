@@ -1,6 +1,11 @@
 import { agenticPosts } from "./posts/agentic";
 import { economicsPosts } from "./posts/economics";
 import { expansionPosts } from "./posts/expansion";
+import { moreAgenticPosts } from "./posts/more-agentic";
+import { moreEconomicsPosts } from "./posts/more-economics";
+import { moreInfrastructurePosts } from "./posts/more-infrastructure";
+import { moreSolanaPosts } from "./posts/more-solana";
+import { regulationPosts } from "./posts/regulation";
 import { infrastructurePosts } from "./posts/infrastructure";
 import { platformPosts } from "./posts/platform";
 import { solanaPosts } from "./posts/solana";
@@ -10,10 +15,15 @@ export type { BlogBlock, BlogPost };
 
 export const blogPosts: BlogPost[] = [
   ...expansionPosts,
+  ...regulationPosts,
   ...infrastructurePosts,
+  ...moreInfrastructurePosts,
   ...solanaPosts,
+  ...moreSolanaPosts,
   ...economicsPosts,
+  ...moreEconomicsPosts,
   ...agenticPosts,
+  ...moreAgenticPosts,
   ...platformPosts,
 ];
 

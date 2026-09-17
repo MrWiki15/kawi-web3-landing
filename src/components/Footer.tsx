@@ -141,11 +141,15 @@ const Footer = () => {
                 {...anchorProps(WEB_APP_URL)}
                 className="inline-flex items-center mb-6"
               >
-                <img
-                  src={kawiLockup}
-                  alt="Kawi — Asesoría y Gestión Financiera"
-                  className="h-16 w-auto object-contain"
-                />
+                {/* The lockup is dark green, so it sits on a light chip to stay
+                    legible against the dark footer. */}
+                <span className="inline-flex rounded-2xl bg-primary-foreground px-5 py-3">
+                  <img
+                    src={kawiLockup}
+                    alt="Kawi — Capital en movimiento"
+                    className="h-14 w-auto object-contain"
+                  />
+                </span>
               </a>
               <p className="text-primary-foreground/70 leading-relaxed mb-8 max-w-xs">{t.footer.description}</p>
               <div className="flex gap-6">

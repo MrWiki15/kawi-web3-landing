@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import kawiLogo from "@/assets/kawi-mark-gold.png";
+import kawiWordmark from "@/assets/kawi-wordmark.png";
 import { useT } from "@/contexts/LanguageContext";
 import { ABOUT_URL, BLOG_URL, WEB_APP_URL } from "@/lib/links";
 
@@ -68,21 +68,14 @@ const Navbar = () => {
           }`}
         >
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 group">
+          <a href="/" className="flex items-center group" aria-label="Kawi home">
             <img
-              src={kawiLogo}
-              alt="Kawi hybrid settlement engine"
-              className={`object-contain transition-all duration-500 ${
-                isScrolled ? "h-7 w-7" : "h-8 w-8 md:h-9 md:w-9"
+              src={kawiWordmark}
+              alt="Kawi"
+              className={`w-auto object-contain transition-all duration-500 ${
+                isScrolled ? "h-6" : "h-7 md:h-8"
               }`}
             />
-            <span
-              className={`font-bold font-display text-primary whitespace-nowrap transition-all duration-500 ${
-                isScrolled ? "text-base" : "text-lg md:text-xl"
-              }`}
-            >
-              Kawi
-            </span>
           </a>
 
           {/* Desktop Navigation */}
@@ -144,14 +137,10 @@ const Navbar = () => {
             <a
               href="/"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center gap-2"
+              className="flex items-center"
+              aria-label="Kawi home"
             >
-              <img
-                src={kawiLogo}
-                alt="Kawi hybrid settlement engine"
-                className="h-8 w-8 object-contain"
-              />
-              <span className="font-bold font-display text-primary text-lg">Kawi</span>
+              <img src={kawiWordmark} alt="Kawi" className="h-7 w-auto object-contain" />
             </a>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
